@@ -1,3 +1,24 @@
+@font-face {
+    font-family: 'MyWebFont';
+    src: url('../fonts/Circe-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MyWebFont';
+    src: url('../fonts/Circe-Bold.ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MyWebFont';
+    src: url('../fonts/Circe-Light.ttf');
+    font-weight: normal;
+    font-style: italic;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -141,11 +162,12 @@ header {
 }
 
 .header {
-    margin: 10px 40px;
+    margin: 20px 40px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     border-bottom: 1px solid lightgray;
+    padding-bottom: 20px;
 }
 
 .header__logo {
@@ -290,12 +312,24 @@ main .main__about {
 }
 
 .photo {
-    background: url('../img/team1.jpg');
     background-size: cover;
     width: 200px;
     height: 200px;
     border-radius: 50%;
     margin: 20px auto;
+}
+.photo.team1 {
+    background: url('../img/team1.jpg');
+    background-size: cover;
+}
+.photo.team2 {
+    background: url('../img/team2.jpg');
+    background-position: top;
+}
+.photo.team3 {
+    background: url('../img/team3.jpg');
+    background-size: cover;
+    background-position-x: 5px;
 }
 
 .contact__photo {
@@ -423,6 +457,7 @@ main .main__about {
 }
 
 .main__work img:hover {
+    border-radius: 50%;
     opacity: 0.9;
     box-shadow: 0 10px 15px 0 rgba(0, 0, 0, .2);
     transform: translateY(-7px);
@@ -588,12 +623,14 @@ footer {
 
 .header__desktop {
     padding: 10px 40px;
-    background-color: rgb(221,245,249);
+    background-color: rgb(221, 245, 249);
 }
-.header__desktop .menu{
+
+.header__desktop .menu {
     display: flex;
     justify-content: space-evenly;
 }
+
 .header__phone {
     display: none;
 }
@@ -635,11 +672,19 @@ a#menus {
 }
 
 .header__phonenumber a {
-    font-weight: bold;
+    font-family: 'MyWebFont';
     color: black;
     font-size: 20px;
     margin-right: 10px;
     display: flex;
+}
+
+.header__phonenumber figure {
+    margin: 5px 0;
+}
+
+.main__team {
+    background: #ebecec;
 }
 
 #toTop {
@@ -779,10 +824,25 @@ a#menus {
     height: 75px;
 }
 
+.block__offers {
+    background: #ebecec;
+}
+
+.block__offers .wrapper {
+    margin-bottom: 0.67em;
+}
+
+@media screen and (max-width: 1350px) {
+    .products figure {
+        width: 20%;
+    }
+}
+
 @media screen and (max-width: 1010px) {
     ul:after {
         display: block;
     }
+
     .col-sm-4 {
         width: 100%;
     }
@@ -804,16 +864,20 @@ a#menus {
         padding: 10px 15px;
         margin: 0;
     }
-    .header__logo img{
+
+    .header__logo img {
         height: 45px;
     }
+
     .header__phonenumber a {
         font-size: 14px;
     }
+
     .header__phonenumber {
         display: flex;
     }
-    .header__phonenumber a{
+
+    .header__phonenumber a {
         margin-right: 5px;
     }
 
@@ -851,7 +915,8 @@ a#menus {
     .header__desktop {
         display: none;
     }
-     .header__phonenumber figcaption span{
+
+    .header__phonenumber figcaption span {
         display: none;
     }
 
@@ -1052,4 +1117,3 @@ a#menus {
         font-size: 12px;
     }
 }
-
