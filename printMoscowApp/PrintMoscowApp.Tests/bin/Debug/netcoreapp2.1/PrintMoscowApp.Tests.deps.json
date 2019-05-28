@@ -9,6 +9,7 @@
       "PrintMoscowApp.Tests/1.0.0": {
         "dependencies": {
           "Moq": "4.11.0",
+          "System.Diagnostics.TraceSource": "4.3.0",
           "xunit": "2.4.1"
         },
         "runtime": {

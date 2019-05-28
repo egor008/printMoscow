@@ -3718,11 +3718,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\dev\\printMoscow\\printMoscowApp\\PrintMoscowApp.Tests\\PrintMoscowApp.Tests.csproj",
+      "projectUniqueName": "C:\\dev\\printMoscow\\printMoscow\\printMoscowApp\\PrintMoscowApp.Tests\\PrintMoscowApp.Tests.csproj",
       "projectName": "PrintMoscowApp.Tests",
-      "projectPath": "C:\\dev\\printMoscow\\printMoscowApp\\PrintMoscowApp.Tests\\PrintMoscowApp.Tests.csproj",
+      "projectPath": "C:\\dev\\printMoscow\\printMoscow\\printMoscowApp\\PrintMoscowApp.Tests\\PrintMoscowApp.Tests.csproj",
       "packagesPath": "C:\\Users\\rozhk\\.nuget\\packages\\",
-      "outputPath": "C:\\dev\\printMoscow\\printMoscowApp\\PrintMoscowApp.Tests\\obj\\",
+      "outputPath": "C:\\dev\\printMoscow\\printMoscow\\printMoscowApp\\PrintMoscowApp.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
