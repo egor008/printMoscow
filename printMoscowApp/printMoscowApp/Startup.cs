@@ -8,17 +8,32 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using PrintMoscowApp.Models;
+using Microsoft.Extensions.Configuration;
+using Microsoft.EntityFrameworkCore;
 
 namespace printMoscowApp
 {
 	public class Startup
 	{
-		// This method gets called by the runtime. Use this method to add services to the container.
-		// For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-		public void ConfigureServices(IServiceCollection services)
+		IConfiguration Configuration;
+		
+		public Startup(IHostingEnvironment env)
 		{
-			services.AddTransient<IProductRepository, FakeProductRepository>();
+			Configuration = new ConfigurationBuilder()
+				.SetBasePath(env.ContentRootPath)
+				.AddJsonFile("appsettings.json").Build();
+		}
+
+		public IServiceProvider ConfigureServices(IServiceCollection services)
+		{
+			services.AddDbContext<ApplicationDbContext>(option =>
+			option.UseSqlServer(
+				Configuration["Data:PrintMoscowProducts:ConnectionString"]));
+
+			services.AddTransient<IProductRepository, EFProductRepository>();
 			services.AddMvc();
+
+			return services.BuildServiceProvider();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,6 +48,7 @@ namespace printMoscowApp
 					name: "default",
 					template: "{controller=Product}/{action=List}/{id?}");
 			});
+			SeedData.EnsurePopulated(app);
 		}
 	}
 }

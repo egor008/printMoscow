@@ -6,14 +6,6 @@ C:\dev\printMoscow\printMoscowApp\PrintMoscowApp.Tests\obj\Debug\netcoreapp2.1\P
 C:\dev\printMoscow\printMoscowApp\PrintMoscowApp.Tests\bin\Debug\netcoreapp2.1\PrintMoscowApp.Tests.runtimeconfig.json
 C:\dev\printMoscow\printMoscowApp\PrintMoscowApp.Tests\bin\Debug\netcoreapp2.1\PrintMoscowApp.Tests.runtimeconfig.dev.json
 C:\dev\printMoscow\printMoscowApp\PrintMoscowApp.Tests\obj\Debug\netcoreapp2.1\PrintMoscowApp.Tests.csprojAssemblyReference.cache
-C:\dev\printMoscow\printMoscow\printMoscowApp\PrintMoscowApp.Tests\bin\Debug\netcoreapp2.1\PrintMoscowApp.Tests.deps.json
-C:\dev\printMoscow\printMoscow\printMoscowApp\PrintMoscowApp.Tests\bin\Debug\netcoreapp2.1\PrintMoscowApp.Tests.runtimeconfig.json
-C:\dev\printMoscow\printMoscow\printMoscowApp\PrintMoscowApp.Tests\bin\Debug\netcoreapp2.1\PrintMoscowApp.Tests.runtimeconfig.dev.json
-C:\dev\printMoscow\printMoscow\printMoscowApp\PrintMoscowApp.Tests\bin\Debug\netcoreapp2.1\PrintMoscowApp.Tests.dll
-C:\dev\printMoscow\printMoscow\printMoscowApp\PrintMoscowApp.Tests\bin\Debug\netcoreapp2.1\PrintMoscowApp.Tests.pdb
-C:\dev\printMoscow\printMoscow\printMoscowApp\PrintMoscowApp.Tests\obj\Debug\netcoreapp2.1\PrintMoscowApp.Tests.csproj.CoreCompileInputs.cache
-C:\dev\printMoscow\printMoscow\printMoscowApp\PrintMoscowApp.Tests\obj\Debug\netcoreapp2.1\PrintMoscowApp.Tests.AssemblyInfoInputs.cache
-C:\dev\printMoscow\printMoscow\printMoscowApp\PrintMoscowApp.Tests\obj\Debug\netcoreapp2.1\PrintMoscowApp.Tests.AssemblyInfo.cs
-C:\dev\printMoscow\printMoscow\printMoscowApp\PrintMoscowApp.Tests\obj\Debug\netcoreapp2.1\PrintMoscowApp.Tests.dll
-C:\dev\printMoscow\printMoscow\printMoscowApp\PrintMoscowApp.Tests\obj\Debug\netcoreapp2.1\PrintMoscowApp.Tests.pdb
-C:\dev\printMoscow\printMoscow\printMoscowApp\PrintMoscowApp.Tests\obj\Debug\netcoreapp2.1\PrintMoscowApp.Tests.csprojAssemblyReference.cache
+C:\dev\printMoscow\printMoscowApp\PrintMoscowApp.Tests\bin\Debug\netcoreapp2.1\PrintMoscowApp.Tests.pdb
+C:\dev\printMoscow\printMoscowApp\PrintMoscowApp.Tests\obj\Debug\netcoreapp2.1\PrintMoscowApp.Tests.dll
+C:\dev\printMoscow\printMoscowApp\PrintMoscowApp.Tests\obj\Debug\netcoreapp2.1\PrintMoscowApp.Tests.pdb
