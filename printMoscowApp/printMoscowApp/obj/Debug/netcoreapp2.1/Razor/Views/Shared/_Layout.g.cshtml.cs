@@ -18,8 +18,13 @@ using PrintMoscowApp.Models;
 
 #line default
 #line hidden
+#line 2 "C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\Views\_ViewImports.cshtml"
+using PrintMoscowApp.Models.ViewModels;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d06f04c2cf4f6fd647e61ac03dec19375e5bca86", @"/Views/Shared/_Layout.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"1955f4dcf3612f01169b254e145be59b31a44882", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"95a983ed1912aac9ec0f14a89f08ef7e2e951c23", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__Layout : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #line hidden
@@ -49,7 +54,7 @@ using PrintMoscowApp.Models;
             WriteLiteral("<!DOCTYPE html>\r\n\r\n<html>\r\n");
             EndContext();
             BeginContext(27, 106, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5ed6f76363674adca7c8f31cb18fcc64", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff93ee2ea88a49ecb3dee5c3c9052104", async() => {
                 BeginContext(33, 93, true);
                 WriteLiteral("\r\n    <meta name=\"viewport\" content=\"width=device-width\" />\r\n    <title>printMoscow</title>\r\n");
                 EndContext();
@@ -69,7 +74,7 @@ using PrintMoscowApp.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(135, 61, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1f36b8e692eb42eab3d6752df2401716", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8e91d14da2464c41953bd4c6ba7d320f", async() => {
                 BeginContext(141, 21, true);
                 WriteLiteral("\r\n    <div>\r\n        ");
                 EndContext();
