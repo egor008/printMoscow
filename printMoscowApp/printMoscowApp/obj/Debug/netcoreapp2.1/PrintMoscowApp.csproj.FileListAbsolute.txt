@@ -31,7 +31,6 @@ C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\bin\Debug\netcoreap
 C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\bin\Debug\netcoreapp2.1\PrintMoscowApp.pdb
 C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\bin\Debug\netcoreapp2.1\PrintMoscowApp.Views.dll
 C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\bin\Debug\netcoreapp2.1\PrintMoscowApp.Views.pdb
-C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\obj\Debug\netcoreapp2.1\PrintMoscowApp.csprojAssemblyReference.cache
 C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\obj\Debug\netcoreapp2.1\PrintMoscowApp.csproj.CoreCompileInputs.cache
 C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\obj\Debug\netcoreapp2.1\PrintMoscowApp.RazorAssemblyInfo.cache
 C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\obj\Debug\netcoreapp2.1\PrintMoscowApp.RazorAssemblyInfo.cs
@@ -50,3 +49,4 @@ C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\obj\Debug\netcoreap
 C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\obj\Debug\netcoreapp2.1\PrintMoscowApp.dll
 C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\obj\Debug\netcoreapp2.1\PrintMoscowApp.pdb
 C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\obj\Debug\netcoreapp2.1\PrintMoscowApp.csproj.CopyComplete
+C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\obj\Debug\netcoreapp2.1\PrintMoscowApp.csprojAssemblyReference.cache

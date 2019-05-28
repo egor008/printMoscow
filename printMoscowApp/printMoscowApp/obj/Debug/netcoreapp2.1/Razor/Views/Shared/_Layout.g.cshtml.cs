@@ -54,7 +54,7 @@ using PrintMoscowApp.Models.ViewModels;
             WriteLiteral("<!DOCTYPE html>\r\n\r\n<html>\r\n");
             EndContext();
             BeginContext(27, 106, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff93ee2ea88a49ecb3dee5c3c9052104", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5137a29c56404c76a74fa158e2b89f8b", async() => {
                 BeginContext(33, 93, true);
                 WriteLiteral("\r\n    <meta name=\"viewport\" content=\"width=device-width\" />\r\n    <title>printMoscow</title>\r\n");
                 EndContext();
@@ -74,7 +74,7 @@ using PrintMoscowApp.Models.ViewModels;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(135, 61, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8e91d14da2464c41953bd4c6ba7d320f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "12db58ae9f5a49b5a3164577b7e30649", async() => {
                 BeginContext(141, 21, true);
                 WriteLiteral("\r\n    <div>\r\n        ");
                 EndContext();
