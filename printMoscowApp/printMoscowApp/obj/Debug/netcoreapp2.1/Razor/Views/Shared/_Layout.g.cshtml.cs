@@ -62,12 +62,12 @@ using PrintMoscowApp.Infrastructure;
             WriteLiteral("<!DOCTYPE html>\r\n<html>\r\n");
             EndContext();
             BeginContext(25, 159, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f553c356b4b9459cadedda8e82ba4029", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6f1aea4c4fa34f2dbd4f588ab448b085", async() => {
                 BeginContext(31, 59, true);
                 WriteLiteral("\r\n\t<meta name=\"viewport\" content=\"width=device-width\" />\r\n\t");
                 EndContext();
                 BeginContext(90, 56, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d63d14eb833b41ea8dbd735306514eec", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "fcae22a591024c529d3b4b0ad838bcc1", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -101,7 +101,7 @@ using PrintMoscowApp.Infrastructure;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(186, 324, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9c73352fdb4940e28227eda811c427bb", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "14745f8a95b24b7c90a90d799f0c1632", async() => {
                 BeginContext(192, 190, true);
                 WriteLiteral("\r\n\t<div class=\"navbar navbar-inverse\" role=\"navigation\">\r\n\t\t<a class=\"navbar-brand\" href=\"#\">PrintMoscow</a>\r\n\t</div>\r\n\t<div class=\"row panel\">\r\n\t\t<div id=\"categories\" class=\"col-xs-3\">\r\n\t\t\t");
                 EndContext();
