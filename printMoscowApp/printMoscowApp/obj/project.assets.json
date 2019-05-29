@@ -2,7 +2,16 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.1": {
+      "bootstrap/3.3.6": {
+        "type": "package",
+        "dependencies": {
+          "jQuery": "[1.9.1, 3.0.0)"
+        }
+      },
       "FontAwesome/4.7.0": {
+        "type": "package"
+      },
+      "jQuery/1.9.1": {
         "type": "package"
       },
       "Microsoft.AspNet.Mvc/5.2.7": {
@@ -4406,6 +4415,32 @@
     }
   },
   "libraries": {
+    "bootstrap/3.3.6": {
+      "sha512": "B6avgcsN2KYxjpqO6jdN+hpPjjeQe5Rb5t/oTA6b4tWXdx80U/aKG6Up0bm+JsPTVsP9/VXc8qfVBicxiaEbAA==",
+      "type": "package",
+      "path": "bootstrap/3.3.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bootstrap.3.3.6.nupkg.sha512",
+        "bootstrap.nuspec",
+        "content/Content/bootstrap-theme.css",
+        "content/Content/bootstrap-theme.css.map",
+        "content/Content/bootstrap-theme.min.css",
+        "content/Content/bootstrap-theme.min.css.map",
+        "content/Content/bootstrap.css",
+        "content/Content/bootstrap.css.map",
+        "content/Content/bootstrap.min.css",
+        "content/Content/bootstrap.min.css.map",
+        "content/Scripts/bootstrap.js",
+        "content/Scripts/bootstrap.min.js",
+        "content/fonts/glyphicons-halflings-regular.eot",
+        "content/fonts/glyphicons-halflings-regular.svg",
+        "content/fonts/glyphicons-halflings-regular.ttf",
+        "content/fonts/glyphicons-halflings-regular.woff",
+        "content/fonts/glyphicons-halflings-regular.woff2"
+      ]
+    },
     "FontAwesome/4.7.0": {
       "sha512": "n4H/brfszElyoZ4kmGh8E75uqvLzLvFr3h2PFVdPH1LwUmWIpeqdaW2pcC4oZAhg7sESyObh0IZpAI8COCNeUg==",
       "type": "package",
@@ -4425,6 +4460,26 @@
         "fontawesome.4.7.0.nupkg.sha512",
         "fontawesome.nuspec",
         "tools/install.ps1"
+      ]
+    },
+    "jQuery/1.9.1": {
+      "sha512": "HiX9icLyiJGgiL5EOIn0d1MBPHVV2M9mzWT4mANdniDNR51RvAFTyKEXEd2+5yQJ4PJ5xePOR61Vjj/omQzYcw==",
+      "type": "package",
+      "path": "jquery/1.9.1",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Scripts/jquery-1.9.1-vsdoc.js",
+        "Content/Scripts/jquery-1.9.1.js",
+        "Content/Scripts/jquery-1.9.1.min.js",
+        "Content/Scripts/jquery-1.9.1.min.map",
+        "Tools/common.ps1",
+        "Tools/install.ps1",
+        "Tools/jquery-1.9.1.intellisense.js",
+        "Tools/uninstall.ps1",
+        "jquery.1.9.1.nupkg.sha512",
+        "jquery.nuspec"
       ]
     },
     "Microsoft.AspNet.Mvc/5.2.7": {
@@ -15798,7 +15853,8 @@
       "Microsoft.Extensions.FileSystemGlobbing >= 2.2.0",
       "Microsoft.Extensions.Primitives >= 2.2.0",
       "Microsoft.NETCore.App >= 2.1.0",
-      "Npm >= 3.5.2"
+      "Npm >= 3.5.2",
+      "bootstrap >= 3.3.6"
     ]
   },
   "packageFolders": {
@@ -15909,6 +15965,10 @@
           "Npm": {
             "target": "Package",
             "version": "[3.5.2, )"
+          },
+          "bootstrap": {
+            "target": "Package",
+            "version": "[3.3.6, )"
           }
         },
         "imports": [

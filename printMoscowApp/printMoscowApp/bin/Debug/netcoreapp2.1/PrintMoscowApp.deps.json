@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "1bcd62bb3ae9e126fdd6879922ccb48b4376fb3e"
+    "signature": "0462fa9cacf44efbe37316729a71d1fcbdba2b45"
   },
   "compilationOptions": {
     "defines": [
@@ -39,7 +39,8 @@
           "Microsoft.Extensions.FileSystemGlobbing": "2.2.0",
           "Microsoft.Extensions.Primitives": "2.2.0",
           "Microsoft.NETCore.App": "2.1.0",
-          "Npm": "3.5.2"
+          "Npm": "3.5.2",
+          "bootstrap": "3.3.6"
         },
         "runtime": {
           "PrintMoscowApp.dll": {}
@@ -48,7 +49,13 @@
           "PrintMoscowApp.dll": {}
         }
       },
+      "bootstrap/3.3.6": {
+        "dependencies": {
+          "jQuery": "1.9.1"
+        }
+      },
       "FontAwesome/4.7.0": {},
+      "jQuery/1.9.1": {},
       "Microsoft.AspNet.Mvc/5.2.7": {
         "dependencies": {
           "Microsoft.AspNet.Razor": "3.2.7",
@@ -3288,12 +3295,26 @@
       "serviceable": false,
       "sha512": ""
     },
+    "bootstrap/3.3.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-B6avgcsN2KYxjpqO6jdN+hpPjjeQe5Rb5t/oTA6b4tWXdx80U/aKG6Up0bm+JsPTVsP9/VXc8qfVBicxiaEbAA==",
+      "path": "bootstrap/3.3.6",
+      "hashPath": "bootstrap.3.3.6.nupkg.sha512"
+    },
     "FontAwesome/4.7.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-n4H/brfszElyoZ4kmGh8E75uqvLzLvFr3h2PFVdPH1LwUmWIpeqdaW2pcC4oZAhg7sESyObh0IZpAI8COCNeUg==",
       "path": "fontawesome/4.7.0",
       "hashPath": "fontawesome.4.7.0.nupkg.sha512"
+    },
+    "jQuery/1.9.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HiX9icLyiJGgiL5EOIn0d1MBPHVV2M9mzWT4mANdniDNR51RvAFTyKEXEd2+5yQJ4PJ5xePOR61Vjj/omQzYcw==",
+      "path": "jquery/1.9.1",
+      "hashPath": "jquery.1.9.1.nupkg.sha512"
     },
     "Microsoft.AspNet.Mvc/5.2.7": {
       "type": "package",
