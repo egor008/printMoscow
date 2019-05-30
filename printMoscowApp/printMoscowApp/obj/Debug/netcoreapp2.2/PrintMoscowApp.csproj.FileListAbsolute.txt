@@ -54,3 +54,5 @@ C:\dev\printMoscow\printMoscowApp\printMoscowApp\obj\Debug\netcoreapp2.2\PrintMo
 C:\dev\printMoscow\printMoscowApp\printMoscowApp\obj\Debug\netcoreapp2.2\PrintMoscowApp.dll
 C:\dev\printMoscow\printMoscowApp\printMoscowApp\obj\Debug\netcoreapp2.2\PrintMoscowApp.pdb
 C:\dev\printMoscow\printMoscowApp\printMoscowApp\obj\Debug\netcoreapp2.2\PrintMoscowApp.csproj.CopyComplete
+C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\obj\Debug\netcoreapp2.2\Razor\Views\Cart\Index.g.cshtml.cs
+C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Components\CartSummary\Default.g.cshtml.cs

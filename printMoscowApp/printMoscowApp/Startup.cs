@@ -31,7 +31,11 @@ namespace printMoscowApp
 				Configuration["Data:PrintMoscowProducts:ConnectionString"]));
 
 			services.AddTransient<IProductRepository, EFProductRepository>();
+			services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+			services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 			services.AddMvc();
+			services.AddMemoryCache();
+			services.AddSession();
 
 			return services.BuildServiceProvider();
 		}
@@ -42,6 +46,7 @@ namespace printMoscowApp
 			app.UseDeveloperExceptionPage();
 			app.UseStatusCodePages();
 			app.UseStaticFiles();
+			app.UseSession();
 			app.UseMvc(routes => {
 				routes.MapRoute(
 					name: null,

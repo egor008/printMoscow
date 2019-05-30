@@ -19,3 +19,4 @@ C:\dev\printMoscow\printMoscow\printMoscowApp\PrintMoscowApp.Tests\obj\Debug\net
 C:\dev\printMoscow\printMoscow\printMoscowApp\PrintMoscowApp.Tests\obj\Debug\netcoreapp2.1\PrintMoscowApp.Tests.AssemblyInfo.cs
 C:\dev\printMoscow\printMoscow\printMoscowApp\PrintMoscowApp.Tests\obj\Debug\netcoreapp2.1\PrintMoscowApp.Tests.dll
 C:\dev\printMoscow\printMoscow\printMoscowApp\PrintMoscowApp.Tests\obj\Debug\netcoreapp2.1\PrintMoscowApp.Tests.pdb
+C:\dev\printMoscow\printMoscow\printMoscowApp\PrintMoscowApp.Tests\obj\Debug\netcoreapp2.1\PrintMoscowApp.Tests.csprojAssemblyReference.cache
