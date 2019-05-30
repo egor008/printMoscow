@@ -16,7 +16,7 @@ namespace printMoscowApp
 	public class Startup
 	{
 		IConfiguration Configuration;
-		
+
 		public Startup(IHostingEnvironment env)
 		{
 			Configuration = new ConfigurationBuilder()
@@ -31,17 +31,22 @@ namespace printMoscowApp
 				Configuration["Data:PrintMoscowProducts:ConnectionString"]));
 
 			services.AddTransient<IProductRepository, EFProductRepository>();
+			services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+			services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 			services.AddMvc();
+			services.AddMemoryCache();
+			services.AddSession();
 
 			return services.BuildServiceProvider();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure(IApplicationBuilder app, IHostingEnvironment env,ILoggerFactory loggerFactory)
+		public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
 		{
 			app.UseDeveloperExceptionPage();
 			app.UseStatusCodePages();
 			app.UseStaticFiles();
+			app.UseSession();
 			app.UseMvc(routes => {
 				routes.MapRoute(
 					name: null,

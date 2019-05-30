@@ -22,7 +22,8 @@ namespace PrintMoscowApp.Models
 					Product = product,
 					Quantity = quantity
 				});
-			} else
+			}
+			else
 			{
 				line.Quantity += quantity;
 			}
