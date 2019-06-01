@@ -18,35 +18,35 @@ namespace PrintMoscowApp.Models
 					new Product
 					{
 						Name = "Test1",
-						Discription = "PRIVET",
+						Description = "PRIVET",
 						Category = "Watersports",
 						Price = 275
 					},
 					new Product
 					{
 						Name = "Test2",
-						Discription = "PRIVET",
+						Description = "PRIVET",
 						Category = "Watersports",
 						Price = 2225
 					},
 					new Product
 					{
 						Name = "Test3",
-						Discription = "PRIVET",
+						Description = "PRIVET",
 						Category = "Watersports",
 						Price = 27115
 					},
 					new Product
 					{
 						Name = "Test4",
-						Discription = "PRIVET",
+						Description = "PRIVET",
 						Category = "Watersports",
 						Price = 271
 					},
 					new Product
 					{
 						Name = "Test5",
-						Discription = "PRIVET",
+						Description = "PRIVET",
 						Category = "Watersports",
 						Price = 27
 					}

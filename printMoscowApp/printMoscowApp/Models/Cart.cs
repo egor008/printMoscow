@@ -1,10 +1,10 @@
-﻿using System;
+﻿using PrintMoscowApp.Models;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace PrintMoscowApp.Models
 {
+
 	public class Cart
 	{
 		private List<CartLine> lineCollection = new List<CartLine>();
@@ -28,6 +28,7 @@ namespace PrintMoscowApp.Models
 				line.Quantity += quantity;
 			}
 		}
+
 		public virtual void RemoveLine(Product product) =>
 			lineCollection.RemoveAll(l => l.Product.ProductID == product.ProductID);
 
@@ -37,11 +38,12 @@ namespace PrintMoscowApp.Models
 		public virtual void Clear() => lineCollection.Clear();
 
 		public virtual IEnumerable<CartLine> Lines => lineCollection;
-		public class CartLine
-		{
-			public int CartLineID { get; set; }
-			public Product Product { get; set; }
-			public int Quantity { get; set; }
-		}
+	}
+
+	public class CartLine
+	{
+		public int CartLineID { get; set; }
+		public Product Product { get; set; }
+		public int Quantity { get; set; }
 	}
 }

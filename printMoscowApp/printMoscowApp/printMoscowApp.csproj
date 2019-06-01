@@ -12,6 +12,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Views\Admin\Edit.cshtml" />
+    <None Include="Views\Admin\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="bootstrap" Version="3.3.6" />
     <PackageReference Include="FontAwesome" Version="4.7.0" />
     <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />

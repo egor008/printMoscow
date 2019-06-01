@@ -19,7 +19,7 @@ namespace PrintMoscowApp.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("PrintMoscowApp.Models.Cart+CartLine", b =>
+            modelBuilder.Entity("PrintMoscowApp.Models.CartLine", b =>
                 {
                     b.Property<int>("CartLineID")
                         .ValueGeneratedOnAdd()
@@ -64,6 +64,8 @@ namespace PrintMoscowApp.Migrations
                     b.Property<string>("Name")
                         .IsRequired();
 
+                    b.Property<bool>("Shipped");
+
                     b.Property<string>("State")
                         .IsRequired();
 
@@ -80,11 +82,14 @@ namespace PrintMoscowApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Category");
+                    b.Property<string>("Category")
+                        .IsRequired();
 
-                    b.Property<string>("Discription");
+                    b.Property<string>("Description")
+                        .IsRequired();
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.Property<decimal>("Price");
 
@@ -93,7 +98,7 @@ namespace PrintMoscowApp.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("PrintMoscowApp.Models.Cart+CartLine", b =>
+            modelBuilder.Entity("PrintMoscowApp.Models.CartLine", b =>
                 {
                     b.HasOne("PrintMoscowApp.Models.Order")
                         .WithMany("Lines")
