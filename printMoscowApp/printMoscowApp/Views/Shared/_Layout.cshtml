@@ -51,9 +51,7 @@
 			</div>
 			<a href="#" id="menu" class="icon"><i class="iconss fas fa-align-justify"></i></a>
 		</div>
-		<div class="pull-right">
-			@await Component.InvokeAsync("CartSummary")
-		</div>
+
 		<nav class="header__desktop">
 
 			<div class="topnav">
@@ -73,8 +71,13 @@
 					<li>
 						<a href="#contacts" class="scrollto">Контакты</a>
 					</li>
+					<li>
+						@await Component.InvokeAsync("CartSummary")
+					</li>
 				</ul>
+
 			</div>
+
 
 		</nav>
 		<nav class="header__phone">
@@ -100,36 +103,45 @@
 			</div>
 		</div>*@
 
-
-	<div class="row panel">
-		<div id="categories" class="col-xs-3">
-			@await Component.InvokeAsync("NavigationMenu")
-		</div>
-		<div class="col-xs-8">
-			@RenderBody()
-		</div>
-	</div>
-	
-	<footer>
+	<section class="main__work " id="products">
 		<div class="wrapper">
-			<div class="footer">
-				<div class="footer__adress">
-					<div style="margin-bottom:10px;">Адрес:</div>
-					<div>Большая Семеновская ул., 38, Москва, 107023</div>
+			<h1>МЫ ПРОИЗВОДИМ ПОЛИГРАФИЧЕСКУЮ ПРОДУКЦИЮ С 2007 ГОДА</h1>
+			<div class="posts">
+				<div class="products">
+					@await Component.InvokeAsync("NavigationMenu")
 				</div>
-				<div class="footer__phone">
-					<div style="margin-bottom:10px;">Телефон:</div>
-					<div><a href="tel:+74957998006">+7 (495) 799-80-06</a></div>
-				</div>
-				<!-- <div><a href="https://www.instagram.com/?hl=ru"><img
-							src="https://img.icons8.com/color/48/000000/instagram.png"></a></div> -->
 			</div>
 		</div>
-		<DIV ID="toTop">.</ DIV>
-	</footer>
-	<script src="node_modules/wowjs/dist/wow.min.js"></script>
-	<script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>
-	<script src="node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
-	<script src="~/js/index.js"></script>
+	</section>
+		@*<div class="row panel">
+		<div id="categories" class="col-xs-3">
+			
+		</div>
+		@*<div class="col-xs-8">
+
+			</div>
+		</div>*@
+		@RenderBody()
+		<footer>
+			<div class="wrapper">
+				<div class="footer">
+					<div class="footer__adress">
+						<div style="margin-bottom:10px;">Адрес:</div>
+						<div>Большая Семеновская ул., 38, Москва, 107023</div>
+					</div>
+					<div class="footer__phone">
+						<div style="margin-bottom:10px;">Телефон:</div>
+						<div><a href="tel:+74957998006">+7 (495) 799-80-06</a></div>
+					</div>
+					<!-- <div><a href="https://www.instagram.com/?hl=ru"><img
+							src="https://img.icons8.com/color/48/000000/instagram.png"></a></div> -->
+				</div>
+			</div>
+			<DIV ID="toTop">.</ DIV>
+		</footer>
+		<script src="node_modules/wowjs/dist/wow.min.js"></script>
+		<script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>
+		<script src="node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
+		<script src="~/js/index.js"></script>
 </body>
 </html>

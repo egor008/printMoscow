@@ -81,9 +81,15 @@ h1 {
 .carousel_3 {
     background-image: url('../img/3.jpg');
 }
+.navbar-btn.btn-sm.my-button {
+	margin: 0;
+	margin-left: 10px;
+}
+.my-navbar-text{
 
+}
 .flex {
-    display: flex;
+	display: flex;
 }
 
 
