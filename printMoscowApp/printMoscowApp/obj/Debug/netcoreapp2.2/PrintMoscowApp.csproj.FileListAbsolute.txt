@@ -62,3 +62,4 @@ C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\obj\Debug\netcoreap
 C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_AdminLayout.g.cshtml.cs
 C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Edit.g.cshtml.cs
 C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\obj\Debug\netcoreapp2.2\Razor\Views\Admin\Index.g.cshtml.cs
+C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\obj\Debug\netcoreapp2.2\Razor\Views\Account\Login.g.cshtml.cs

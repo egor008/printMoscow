@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Views\Account\Login.cshtml" />
     <None Include="Views\Admin\Edit.cshtml" />
     <None Include="Views\Admin\Index.cshtml" />
   </ItemGroup>

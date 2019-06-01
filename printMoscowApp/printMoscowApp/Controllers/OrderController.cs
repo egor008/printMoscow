@@ -1,23 +1,29 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PrintMoscowApp.Models;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PrintMoscowApp.Controllers
 {
+
 	public class OrderController : Controller
 	{
 		private IOrderRepository repository;
 		private Cart cart;
+
 		public OrderController(IOrderRepository repoService, Cart cartService)
 		{
 			repository = repoService;
 			cart = cartService;
 		}
+
+		[Authorize]
 		public ViewResult List() =>
-			View(repository.Orders.Where(x => !x.Shipped));
+			View(repository.Orders.Where(o => !o.Shipped));
 
 		[HttpPost]
-		public IActionResult MarkShipped (int orderID)
+		[Authorize]
+		public IActionResult MarkShipped(int orderID)
 		{
 			Order order = repository.Orders
 				.FirstOrDefault(o => o.OrderID == orderID);
@@ -36,7 +42,7 @@ namespace PrintMoscowApp.Controllers
 		{
 			if (cart.Lines.Count() == 0)
 			{
-				ModelState.AddModelError("", "Извинте, Ваша корзина пуста");
+				ModelState.AddModelError("", "Sorry, your cart is empty!");
 			}
 			if (ModelState.IsValid)
 			{
@@ -49,6 +55,7 @@ namespace PrintMoscowApp.Controllers
 				return View(order);
 			}
 		}
+
 		public ViewResult Completed()
 		{
 			cart.Clear();

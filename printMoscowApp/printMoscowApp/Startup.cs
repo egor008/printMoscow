@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using PrintMoscowApp.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace printMoscowApp
 {
@@ -30,6 +31,13 @@ namespace printMoscowApp
 			option.UseSqlServer(
 				Configuration["Data:PrintMoscowProducts:ConnectionString"]));
 
+			services.AddDbContext<AppIdentityDbContext>(options =>
+				options.UseSqlServer(
+					Configuration["Data:PrintMoscowIdentity:ConnectionString"]));
+
+			services.AddIdentity<IdentityUser, IdentityRole>()
+				.AddEntityFrameworkStores<AppIdentityDbContext>();
+
 			services.AddTransient<IProductRepository, EFProductRepository>();
 			services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
 			services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -48,6 +56,7 @@ namespace printMoscowApp
 			app.UseStatusCodePages();
 			app.UseStaticFiles();
 			app.UseSession();
+			app.UseAuthentication();
 			app.UseMvc(routes => {
 				routes.MapRoute(
 					name: null,
@@ -75,6 +84,7 @@ namespace printMoscowApp
 				routes.MapRoute(name: null, template: "{controller}/{action}/{id?}");
 			});
 			SeedData.EnsurePopulated(app);
+			IdentitySeedData.EnsurePopulated(app);
 		}
 	}
 }

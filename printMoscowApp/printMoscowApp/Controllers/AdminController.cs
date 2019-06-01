@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PrintMoscowApp.Models;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PrintMoscowApp.Controllers
 {
 
+	[Authorize]
 	public class AdminController : Controller
 	{
 		private IProductRepository repository;
