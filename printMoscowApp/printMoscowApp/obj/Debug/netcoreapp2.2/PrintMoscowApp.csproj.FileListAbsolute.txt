@@ -57,3 +57,4 @@ C:\dev\printMoscow\printMoscowApp\printMoscowApp\obj\Debug\netcoreapp2.2\PrintMo
 C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\obj\Debug\netcoreapp2.2\Razor\Views\Cart\index.g.cshtml.cs
 C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Components\CartSummary\Default.g.cshtml.cs
 C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\obj\Debug\netcoreapp2.2\Razor\Views\Order\Checkout.g.cshtml.cs
+C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\obj\Debug\netcoreapp2.2\Razor\Views\Order\Completed.g.cshtml.cs

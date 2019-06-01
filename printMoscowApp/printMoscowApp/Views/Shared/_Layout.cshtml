@@ -1,18 +1,106 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="width=device-width" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
 	<link rel="stylesheet" href='~/css/bootstrap.min.css' />
+	<link rel="stylesheet" type="text/css" href="~/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="~/css/style.css">
 	<script src="https://kit.fontawesome.com/03913efd2b.js"></script>
-	<title>printMoscow</title>
+	<title>PRINT.MOSCOW</title>
 </head>
 <body>
-	<div class="navbar navbar-inverse" role="navigation">
-		<a class="navbar-brand" href="#">PrintMoscow</a>
+	<header>
+		<div class="header">
+			<div class="header__logo">
+				<a href="index.html">
+					<img src="~/img/logo.png">
+				</a>
+
+			</div>
+			<div></div>
+			<div></div>
+			<div class="header__phonenumber">
+				<!-- <div>
+					<a href="tel:+74957998006">+7 (495) 799-80-06</a>
+				</div> -->
+				<figure>
+					<a href="tel:+74957998006">
+						<img src="~/img/phone.png" alt="1">
+						<figcaption>
+							<span>+7 (495) 799-80-06</span>
+						</figcaption>
+					</a>
+				</figure>
+				<figure>
+					<a href="mailto:+74957998006">
+						<img src="~/img/mail.png" alt="1">
+						<figcaption>
+							<span>info@print.moscow</span>
+						</figcaption>
+					</a>
+				</figure>
+				<figure>
+					<a href="https://www.instagram.com/print_moscow?hl=ru">
+						<img src="~/img/inst.png" alt="1">
+						<figcaption>
+							<span>print_moscow</span>
+						</figcaption>
+					</a>
+				</figure>
+			</div>
+			<a href="#" id="menu" class="icon"><i class="iconss fas fa-align-justify"></i></a>
+		</div>
 		<div class="pull-right">
 			@await Component.InvokeAsync("CartSummary")
 		</div>
-	</div>
+		<nav class="header__desktop">
+
+			<div class="topnav">
+				<ul class="menu">
+					<li>
+						<a href="index.html">Главная</a>
+					</li>
+					<li>
+						<a href="photo.html" class="scrollto">Фото работ</a>
+					</li>
+					<li>
+						<a href="#products" class="scrollto">Наша продукция</a>
+					</li>
+					<!-- <li>
+						<a href="photo.html" class="scrollto">Отзывы</a>
+					</li> -->
+					<li>
+						<a href="#contacts" class="scrollto">Контакты</a>
+					</li>
+				</ul>
+			</div>
+
+		</nav>
+		<nav class="header__phone">
+			<div class="topnav" id="myTopnav">
+				<a href="index.html" class="scrollto">Главная</a>
+				<div style="display: flex;justify-content: space-between;">
+					<a href="#products" class="scrollto">Наша продукция</a>
+					<a href="#" id="menus" class="icon scrollto"><i class="icons fas fa-angle-down"></i></a>
+				</div>
+				<div class="topnas" id="myTopnas">
+				</div>
+				<a href="photo.html" class="scrollto">Фото работ</a>
+				<a class="lastUrl scrollto" href="#contacts">Контакты</a>
+
+			</div>
+		</nav>
+	</header>
+
+	@*<div class="navbar navbar-inverse" role="navigation">
+			<a class="navbar-brand" href="#">PrintMoscow</a>
+			<div class="pull-right">
+				@await Component.InvokeAsync("CartSummary")
+			</div>
+		</div>*@
+
+
 	<div class="row panel">
 		<div id="categories" class="col-xs-3">
 			@await Component.InvokeAsync("NavigationMenu")
@@ -21,5 +109,27 @@
 			@RenderBody()
 		</div>
 	</div>
+	
+	<footer>
+		<div class="wrapper">
+			<div class="footer">
+				<div class="footer__adress">
+					<div style="margin-bottom:10px;">Адрес:</div>
+					<div>Большая Семеновская ул., 38, Москва, 107023</div>
+				</div>
+				<div class="footer__phone">
+					<div style="margin-bottom:10px;">Телефон:</div>
+					<div><a href="tel:+74957998006">+7 (495) 799-80-06</a></div>
+				</div>
+				<!-- <div><a href="https://www.instagram.com/?hl=ru"><img
+							src="https://img.icons8.com/color/48/000000/instagram.png"></a></div> -->
+			</div>
+		</div>
+		<DIV ID="toTop">.</ DIV>
+	</footer>
+	<script src="node_modules/wowjs/dist/wow.min.js"></script>
+	<script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>
+	<script src="node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
+	<script src="~/js/index.js"></script>
 </body>
 </html>
