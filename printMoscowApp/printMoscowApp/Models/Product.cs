@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace PrintMoscowApp.Models
@@ -22,5 +23,10 @@ namespace PrintMoscowApp.Models
 
 		[Required(ErrorMessage = "Please specify a category")]
 		public string Category { get; set; }
+
+		public byte[] ImageData { get; set; }
+
+		[Column(TypeName = "varchar(50)")]
+		public string ImageMimeType { get; set; }
 	}
 }
