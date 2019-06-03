@@ -14,14 +14,22 @@
 	<script asp-src-include="~/js/jquery.validate.min.js"></script>
 	<script asp-src-include="~/js/jquery.validate.unobtrusive.js"></script>
 </head>
-<body class="panel panel-default">
-	<div class="panel-heading"><h4>@ViewBag.Title</h4></div>
-	<div class="panel-body">
-		@if (TempData["message"] != null)
-		{
-			<div class="alert alert-success">@TempData["message"]</div>
-		}
-		@RenderBody()
-	</div>
+<body>
+	<header>
+		<a asp-action="Index"
+		   asp-controller="Admin">Продукты</a>
+		<a asp-action="CategoryList"
+		   asp-controller="Admin">Категории</a>
+	</header>
+	<section class="panel panel-default">
+		<div class="panel-heading"><h4>@ViewBag.Title</h4></div>
+		<div class="panel-body">
+			@if (TempData["message"] != null)
+			{
+				<div class="alert alert-success">@TempData["message"]</div>
+			}
+			@RenderBody()
+		</div>
+	</section>
 </body>
 </html>

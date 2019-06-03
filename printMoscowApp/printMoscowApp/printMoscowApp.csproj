@@ -12,6 +12,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20190603194328_Test.cs" />
+    <Compile Remove="Migrations\20190603194328_Test.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="Views\Account\Login.cshtml" />
     <None Include="Views\Admin\Edit.cshtml" />
     <None Include="Views\Admin\Index.cshtml" />

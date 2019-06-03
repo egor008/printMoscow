@@ -10,13 +10,15 @@ namespace PrintMoscowApp.Controllers
 	public class AdminController : Controller
 	{
 		private IProductRepository repository;
+		private ICategoryRepository categoryRepository;
 
-		public AdminController(IProductRepository repo)
+		public AdminController(IProductRepository repo,ICategoryRepository categoryRepo)
 		{
 			repository = repo;
+			categoryRepository = categoryRepo;
 		}
 
-		public ViewResult Index() => View(repository.Products);
+		public ViewResult Index() => View(repository.Products);		
 
 		public ViewResult Edit(int productId) =>
 			View(repository.Products
@@ -49,6 +51,41 @@ namespace PrintMoscowApp.Controllers
 				TempData["message"] = $"{deletedProduct.Name} was deleted";
 			}
 			return RedirectToAction("Index");
+		}
+
+		public ViewResult CategoryList() => View(categoryRepository.Categories);
+
+		public ViewResult EditCategory(int categoryId) =>
+			View(categoryRepository.Categories
+				.FirstOrDefault(p => p.Id == categoryId));
+
+		[HttpPost]
+		public IActionResult EditCategory(Category category)
+		{
+			if (ModelState.IsValid)
+			{
+				categoryRepository.SaveCategory(category);
+				TempData["message"] = $"{category.Name} has been saved";
+				return RedirectToAction("CategoryList");
+			}
+			else
+			{
+				// there is something wrong with the data values
+				return View(category);
+			}
+		}
+
+		public ViewResult CreateCategory() => View("EditCategory", new Category());
+
+		[HttpPost]
+		public IActionResult DeleteCategory(int categoryId)
+		{
+			Category deletedCategory = categoryRepository.DeleteCategory(categoryId);
+			if (deletedCategory != null)
+			{
+				TempData["message"] = $"{deletedCategory.Name} was deleted";
+			}
+			return RedirectToAction("CategoryList");
 		}
 	}
 }

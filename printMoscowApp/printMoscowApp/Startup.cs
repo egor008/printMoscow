@@ -42,6 +42,7 @@ namespace printMoscowApp
 			services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
 			services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 			services.AddTransient<IOrderRepository, EFOrderRepository>();
+			services.AddTransient<ICategoryRepository, EFCategorytRepository>();
 			services.AddMvc();
 			services.AddMemoryCache();
 			services.AddSession();
