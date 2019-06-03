@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<sitemanifest>
-  <IisApp path="C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\obj\Release\netcoreapp2.2\win-x64\PubTmp\Out\" />
-  <dbfullsql path="C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\obj\Release\netcoreapp2.2\win-x64\PubTmp\EFSQLScripts\PrintMoscowApp.Models.AppIdentityDbContext.sql" />
-  <dbfullsql path="C:\dev\printMoscow\printMoscow\printMoscowApp\printMoscowApp\obj\Release\netcoreapp2.2\win-x64\PubTmp\EFSQLScripts\PrintMoscowApp.Models.ApplicationDbContext.sql" />
-</sitemanifest>
