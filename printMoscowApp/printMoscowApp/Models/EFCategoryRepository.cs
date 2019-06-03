@@ -27,7 +27,8 @@ namespace PrintMoscowApp.Models
 					.FirstOrDefault(p => p.Id == category.Id);
 				if (dbEntry != null)
 				{
-					dbEntry.Name = category.Name;					
+					dbEntry.Name = category.Name;
+					dbEntry.Price = category.Price;
 					dbEntry.ImageData = category.ImageData;
 					dbEntry.ImageMimeType = category.ImageMimeType;
 				}

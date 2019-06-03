@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Product>
+﻿@model IEnumerable<Category>
 
 @{
 	ViewBag.Title = "PRINT.MOSCOW";
@@ -14,11 +14,11 @@
 					<figure>
 						<a asp-action="List"
    asp-controller="Product"
-   asp-route-category="@item.Category"
+   asp-route-category="@item.Name"
    asp-route-page="1">
 							<img src="./img/icons/Визитки.png" width="160px" height="160px" alt="1">
 							<figcaption>
-								<span style="display:block">@item.Category</span>
+								<span style="display:block">@item.Name</span>
 								<span>от @item.Price руб</span>
 							</figcaption>
 						</a>

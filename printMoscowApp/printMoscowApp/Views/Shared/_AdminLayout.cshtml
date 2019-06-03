@@ -15,11 +15,11 @@
 	<script asp-src-include="~/js/jquery.validate.unobtrusive.js"></script>
 </head>
 <body>
-	<header>
+	<header>	
 		<a asp-action="Index"
-		   asp-controller="Admin">Продукты</a>
+		   asp-controller="Admin" class="btn btn-primary">Продукты</a>
 		<a asp-action="CategoryList"
-		   asp-controller="Admin">Категории</a>
+		   asp-controller="Admin" class="btn btn-primary">Категории</a>
 	</header>
 	<section class="panel panel-default">
 		<div class="panel-heading"><h4>@ViewBag.Title</h4></div>

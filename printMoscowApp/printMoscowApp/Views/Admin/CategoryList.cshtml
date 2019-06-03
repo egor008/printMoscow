@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Category>
 
 @{
-	ViewBag.Title = "All Products";
+	ViewBag.Title = "All Category";
 	Layout = "_AdminLayout";
 }
 
@@ -15,23 +15,28 @@
 	</tr>
 	@foreach (var item in Model)
 	{
-		<tr>
-			<td class="text-right">@item.Id</td>
-			<td>@item.Name</td>
-			<td class="text-right">Пока нет</td>
-			<td class="text-center">@item.ImageData<td class="text-center">
-				<form asp-action="DeleteCategory" method="post">
-					<a asp-action="EditCategory" class="btn btn-sm btn-warning"
-					   asp-route-categoryId="@item.Id">
-						Edit
-					</a>
-					<input type="hidden" name="CategoryId" value="@item.Id" />
-					<button type="submit" class="btn btn-danger btn-sm">
-						Delete
-					</button>
-				</form>
-			</td>
-		</tr>
+	<tr>
+		<td class="text-right">@item.Id</td>
+		<td>@item.Name</td>
+		@if (@item.Price > 0){
+		<td class="text-right">@item.Price</td>
+		} else {
+		<td class="text-right">Цена не задана</td>
+	}
+	<td class="text-center">@item.ImageData
+	<td class="text-center">
+		<form asp-action="DeleteCategory" method="post">
+			<a asp-action="EditCategory" class="btn btn-sm btn-warning"
+			   asp-route-categoryId="@item.Id">
+				Edit
+			</a>
+			<input type="hidden" name="CategoryId" value="@item.Id" />
+			<button type="submit" class="btn btn-danger btn-sm">
+				Delete
+			</button>
+		</form>
+	</td>
+	</tr>
 	}
 </table>
 <div class="text-center">

@@ -6,12 +6,12 @@ namespace PrintMoscowApp.Controllers
 {
 	public class HomeController : Controller
 	{
-		private IProductRepository repository;
+		private ICategoryRepository repository;
 
-		public HomeController(IProductRepository repo)
+		public HomeController(ICategoryRepository repo)
 		{
 			repository = repo;
 		}
-		public ViewResult Index() => View(repository.Products);
+		public ViewResult Index() => View(repository.Categories);
 	}
 }
