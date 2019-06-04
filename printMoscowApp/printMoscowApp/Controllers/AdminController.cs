@@ -2,6 +2,7 @@
 using PrintMoscowApp.Models;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 
 namespace PrintMoscowApp.Controllers
 {
@@ -60,10 +61,16 @@ namespace PrintMoscowApp.Controllers
 				.FirstOrDefault(p => p.Id == categoryId));
 
 		[HttpPost]
-		public IActionResult EditCategory(Category category)
+		public IActionResult EditCategory(Category category, IFormFile image = null)
 		{
 			if (ModelState.IsValid)
 			{
+				if (image != null)
+				{
+					category.ImageMimeType = image.ContentType;
+					category.ImageData = new byte[image.Length];
+					image.OpenReadStream().Read(category.ImageData, 0,1);
+				}
 				categoryRepository.SaveCategory(category);
 				TempData["message"] = $"{category.Name} has been saved";
 				return RedirectToAction("CategoryList");
