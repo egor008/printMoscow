@@ -10,8 +10,6 @@ namespace PrintMoscowApp.Models
 		public int Id { get; set; }		
 		public string Name { get; set; }	
 		public int Price { get; set; }
-		public byte[] ImageData { get; set; }
-		[Column(TypeName = "varchar(50)")]
-		public string ImageMimeType { get; set; }
+		public byte[] CategoryImage { get; set; }
 	}
 }

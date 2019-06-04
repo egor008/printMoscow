@@ -29,8 +29,7 @@ namespace PrintMoscowApp.Models
 				{
 					dbEntry.Name = category.Name;
 					dbEntry.Price = category.Price;
-					dbEntry.ImageData = category.ImageData;
-					dbEntry.ImageMimeType = category.ImageMimeType;
+					dbEntry.CategoryImage = category.CategoryImage;
 				}
 			}
 			context.SaveChanges();
