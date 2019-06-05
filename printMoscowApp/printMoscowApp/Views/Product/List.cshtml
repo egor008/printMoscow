@@ -1,12 +1,77 @@
 ﻿@model ProductsListViewModel
 
-@foreach (var p in Model.Products)
-{
-	@Html.Partial("ProductSummary", p)
-}
+<main>
+	<section id="main">
+		<div class="wrapper">
+			<h1>@Model.CurrentCategory</h1>
+		</div>
+	</section>
+	<div class="wrapper">
+		<div class="product">
+			@foreach (var p in Model.Products)
+			{
+				@Html.Partial("ProductSummary", p)
+			}
+		</div>
+		<div page-model="@Model.PagingInfo" page-action="List" page-classes-enabled="true"
+			 page-class="btn" page-class-normal="btn-default"
+			 page-class-selected="btn-primary" page-url-category="@Model.CurrentCategory"
+			 class="btn-group pull-right">
+		</div>
+	</div>
+	<section id="examples">
+		<div class="wrapper">
+			<div class="examples__header">
+				<h4>Примеры</h4>
+			</div>
+			<div class="examples__photos">
+				<a class="example-image-link" href="http://lokeshdhakar.com/projects/lightbox2/images/image-3.jpg"
+				   data-lightbox="example-set">
+					<img class="example-image"
+						 src="http://lokeshdhakar.com/projects/lightbox2/images/thumb-3.jpg" alt="" />
+				</a>
+				<a class="example-image-link" href="http://lokeshdhakar.com/projects/lightbox2/images/image-4.jpg"
+				   data-lightbox="example-set">
+					<img class="example-image"
+						 src="http://lokeshdhakar.com/projects/lightbox2/images/thumb-4.jpg" alt="" />
+				</a>
+				<a class="example-image-link" href="http://lokeshdhakar.com/projects/lightbox2/images/image-5.jpg"
+				   data-lightbox="example-set">
+					<img class="example-image"
+						 src="http://lokeshdhakar.com/projects/lightbox2/images/thumb-5.jpg" alt="" />
+				</a>
+				<a class="example-image-link" href="http://lokeshdhakar.com/projects/lightbox2/images/image-6.jpg"
+				   data-lightbox="example-set">
+					<img class="example-image"
+						 src="http://lokeshdhakar.com/projects/lightbox2/images/thumb-6.jpg" alt="" />
+				</a>
+			</div>
+			<div>
+				<span>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					Nulla quam
+					velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac
+					blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris
+					molestie elit, et lacinia ipsum quam nec dui.
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					Nulla quam
+					velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac
+					blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris
+					molestie elit, et lacinia ipsum quam nec dui.
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					Nulla quam
+					velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac
+					blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris
+					molestie elit, et lacinia ipsum quam nec dui.
+				</span>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Nulla quam
+				velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac
+				blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris
+				molestie elit, et lacinia ipsum quam nec dui.
 
-<div page-model="@Model.PagingInfo" page-action="List" page-classes-enabled="true"
-	 page-class="btn" page-class-normal="btn-default"
-	 page-class-selected="btn-primary" page-url-category="@Model.CurrentCategory"
-	 class="btn-group pull-right">
-</div>
+			</div>
+		</div>
+
+	</section>
+</main>

@@ -76,12 +76,15 @@ namespace PrintMoscowApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditCategory(CategoryEditViewModel categoryView)
         {
-            using (var memoryStream = new MemoryStream())
-            {
-                await categoryView.CategoryImage.CopyToAsync(memoryStream);
-                categoryView.Category.CategoryImage = memoryStream.ToArray();
-                categoryView.Category.ImageMimeType = categoryView.CategoryImage.ContentType;
-            }
+			if (categoryView.CategoryImage != null)
+			{
+				using (var memoryStream = new MemoryStream())
+				{
+					await categoryView.CategoryImage.CopyToAsync(memoryStream);
+					categoryView.Category.CategoryImage = memoryStream.ToArray();
+					categoryView.Category.ImageMimeType = categoryView.CategoryImage.ContentType;
+				}
+			}
             if (ModelState.IsValid)
             {
                 var category = new Category
