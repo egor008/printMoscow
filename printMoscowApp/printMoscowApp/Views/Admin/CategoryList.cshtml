@@ -23,8 +23,16 @@
 		} else {
 		<td class="text-right">Цена не задана</td>
 	}
-	<td class="text-center">@item.CategoryImage
-	<td class="text-center">
+        <td class="text-center">
+            @if (item.CategoryImage != null)
+            {
+                <div class="pull-left" style="margin-right: 10px">
+                    <img class="img-thumbnail" width="75" height="75"
+                         src="@Url.Action("GetImage", "Admin",
+                new { item.Id })" />
+                </div>
+            }
+<td class="text-center">
 		<form asp-action="DeleteCategory" method="post">
 			<a asp-action="EditCategory" class="btn btn-sm btn-warning"
 			   asp-route-categoryId="@item.Id">

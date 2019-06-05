@@ -12,16 +12,23 @@
 				@foreach (var item in Model)
 				{
 					<figure>
-						<a asp-action="List"
-   asp-controller="Product"
-   asp-route-category="@item.Name"
-   asp-route-page="1">
-							<img src="./img/icons/Визитки.png" width="160px" height="160px" alt="1">
-							<figcaption>
-								<span style="display:block">@item.Name</span>
-								<span>от @item.Price руб</span>
-							</figcaption>
-						</a>
+                        <a asp-action="List"
+                           asp-controller="Product"
+                           asp-route-category="@item.Name"
+                           asp-route-page="1">
+                            @if (item.CategoryImage != null)
+                            {
+                                <div>
+                                    <img class="img-thumbnail" width="160" height="160"
+                                         src="@Url.Action("GetImage", "Admin",
+                new { item.Id })" />
+                                </div>
+                            }
+                            <figcaption>
+                                <span style="display:block">@item.Name</span>
+                                <span>от @item.Price руб</span>
+                            </figcaption>
+                        </a>
 					</figure>
 				}
 
