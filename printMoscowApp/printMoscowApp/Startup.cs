@@ -18,12 +18,24 @@ namespace printMoscowApp
 	{
 		IConfiguration Configuration;
 
+
+
+#if DEBUG
 		public Startup(IHostingEnvironment env)
 		{
 			Configuration = new ConfigurationBuilder()
 				.SetBasePath(env.ContentRootPath)
-				.AddJsonFile("appsettings.json").Build();
+				.AddJsonFile("appsettings.Local.json").Build();
 		}
+#else
+		public Startup(IHostingEnvironment env)
+		{
+			Configuration = new ConfigurationBuilder()
+				.SetBasePath(env.ContentRootPath)
+				.AddJsonFile("appsettings.Release.json").Build();
+		}
+
+#endif
 
 		public IServiceProvider ConfigureServices(IServiceCollection services)
 		{
