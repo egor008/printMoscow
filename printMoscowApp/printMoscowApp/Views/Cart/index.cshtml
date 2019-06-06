@@ -1,45 +1,67 @@
 ﻿@model CartIndexViewModel
+<section>
+	<div class="wrapper">
+		<h1>Корзина</h1>
 
-<h2>Ваша корзина</h2>
-<table class="table table-bordered table-striped">
-	<thead>
-		<tr>
-			<th>Quantity</th>
-			<th>Item</th>
-			<th class="text-right">Price</th>
-			<th class="text-right">Subtotal</th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach (var line in Model.Cart.Lines)
-		{
-			<tr>
-				<td class="text-center">@line.Quantity</td>
-				<td class="text-left">@line.Product.Name</td>
-				<td class="text-right">@line.Product.Price.ToString("c")</td>
-				<td class="text-right">
-					@((line.Quantity * line.Product.Price).ToString("c"))
-				</td>
-				<td>
-					<form asp-action="RemoveFromCart" method="post">
-						<input type="hidden" name="ProductId"
-							   value="@line.Product.ProductID" />
-						<input type="hidden" name="returnUrl"
-							   value="@Model.ReturnUrl" />
-						<button type="submit" class="btn btn-danger btn-sm">Удалить</button>
-					</form>
-				</td>
-			</tr>
-		}
-	</tbody>
+		@*<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Quantity</th>
+					<th>Item</th>
+					<th class="text-right">Price</th>
+					<th class="text-right">Subtotal</th>
+				</tr>
+			</thead>
+			<tbody>
 
-	<tfoot>
-		<tr>
-			<td colspan="3" class="text-right">Total:</td>
-			<td class="text-right">@Model.Cart.ComputeTotalValue().ToString("c")</td>
-		</tr>
-	</tfoot>
-</table>
+				@foreach (var line in Model.Cart.Lines)
+				{
+					<tr>
+						<td class="text-center">@line.Quantity</td>
+						<td class="text-left">@line.Product.Name</td>
+						<td class="text-right">@line.Product.Price.ToString("c")</td>
+						<td class="text-right">
+							@((line.Quantity * line.Product.Price).ToString("c"))
+						</td>
+						<td>
+							<form asp-action="RemoveFromCart" method="post">
+								<input type="hidden" name="ProductId"
+									   value="@line.Product.ProductID" />
+								<input type="hidden" name="returnUrl"
+									   value="@Model.ReturnUrl" />
+								<button type="submit" class="btn btn-danger btn-sm">Удалить</button>
+							</form>
+						</td>
+					</tr>
+				}
+
+			</tbody>
+
+			<tfoot>
+				<tr>
+					<td colspan="3" class="text-right">Total:</td>
+					<td class="text-right">@Model.Cart.ComputeTotalValue().ToString("c")</td>
+				</tr>
+			</tfoot>
+		</table>*@
+		<div>
+			@foreach (var line in Model.Cart.Lines)
+			{
+			<div class="field">
+				<span class="product_name">@line.Product.Category @line.Product.Name @line.Product.Description в количестве <strong>@line.Quantity</strong> на цену в @((line.Quantity * line.Product.Price).ToString("c"))</span>
+				<form asp-action="RemoveFromCart" method="post">
+					<input type="hidden" name="ProductId"
+						   value="@line.Product.ProductID" />
+					<input type="hidden" name="returnUrl"
+						   value="@Model.ReturnUrl" />
+					<button type="submit" class="btn_delete">X</button>
+				</form>
+			</div>
+			}
+		</div>
+		<div>Всего:@Model.Cart.ComputeTotalValue().ToString("c") </div>
+	</div>
+</section>
 <div class="text-center">
 	<a class="btn btn-primary" href="@Model.ReturnUrl">Продолжить покупки</a>
 	<a class="btn btn-primary" asp-action="Checkout" asp-controller="Order">Перейти к оплате</a>
