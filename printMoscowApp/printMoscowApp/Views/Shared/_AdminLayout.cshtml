@@ -3,6 +3,7 @@
 <head>
 	<meta name="viewport" content="width=device-width" />
 	<link rel="stylesheet" asp-href-include="~/css/*.min.css" />
+	<link rel="stylesheet" type="text/css" href="~/css/admin_style.css">
 	<title>@ViewBag.Title</title>
 	<style>
 		.input-validation-error {
@@ -15,11 +16,17 @@
 	<script asp-src-include="~/js/jquery.validate.unobtrusive.js"></script>
 </head>
 <body>
-	<header>	
-		<a asp-action="Index"
-		   asp-controller="Admin" class="btn btn-primary">Продукты</a>
-		<a asp-action="CategoryList"
-		   asp-controller="Admin" class="btn btn-primary">Категории</a>
+	<header>
+		<div class="header">
+			<ul>
+				<li><a asp-action="Index"
+   asp-controller="Admin" class="btn menu">Продукты</a></li>
+				<li><a asp-action="CategoryList"
+   asp-controller="Admin" class="btn menu">Категории</a></li>
+			</ul>
+			
+			
+		</div>
 	</header>
 	<section class="panel panel-default">
 		<div class="panel-heading"><h4>@ViewBag.Title</h4></div>
@@ -31,5 +38,6 @@
 			@RenderBody()
 		</div>
 	</section>
+	<script src="~/js/admin.js"></script>
 </body>
 </html>
