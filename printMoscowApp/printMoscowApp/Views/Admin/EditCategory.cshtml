@@ -1,36 +1,26 @@
 ﻿@model CategoryEditViewModel
 
 @{
-	ViewBag.Title = ViewContext.ActionDescriptor.DisplayName + "Category";
+	ViewBag.Title = Model.Category.Name;
 	Layout = "_AdminLayout";
 }
 
 <form asp-action="EditCategory" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" enctype="multipart/form-data">
 	<input type="hidden" asp-for="Category.Id" />
 	<div class="form-group">
-		<label asp-for="Category.Name"></label>
+		<label asp-for="Category.Name">Наименование</label>
 		<div><span asp-validation-for="Category.Name" class="text-danger"></span></div>
 		<input asp-for="Category.Name" class="form-control" />
 	</div>
 	<div class="form-group">
-		<label asp-for="Category.Price"></label>
+		<label asp-for="Category.Price">Минимальная цена</label>
 		<div><span asp-validation-for="Category.Price" class="text-danger"></span></div>
 		<input asp-for="Category.Price" class="form-control" />
-	</div>
-	<div class="text-center">
-		<button class="btn btn-primary" type="submit">Save</button>
-		<a asp-action="CategoryList" class="btn btn-default">Cancel</a>
-	</div>
-	<div class="form-group">
-		<div class="col-md-10">
-			<p>Upload one or more files using this form:</p>
-			<input type="file" name="CategoryImage" multiple>
-		</div>
 	</div>
 	<div class="form-group">
 		@if (Model.Category.CategoryImage == null)
 		{
-			<div class="form-control-static">Нет картинки</div>
+			<div class="form-control-static">Изображение не загружено</div>
 		}
 		else
 		{
@@ -39,4 +29,20 @@
                         new { Model.Category.Id })" />
 		}
 	</div>
+	<div style="display: flex;
+    flex-direction: column;">
+
+		<div class="form-group" style="@(Model.Category.CategoryImage != null? "display:none" : "display:block")">
+			<div class="">
+				<p>Загрузить одну фотографию:</p>
+				<input type="file" name="CategoryImage" multiple>
+			</div>
+		</div>
+
+	</div>
+	<div class="text-center">
+		<button class="btn btn-primary" type="submit">Сохранить</button>
+		<a asp-action="CategoryList" class="btn btn-default">Отменить</a>
+	</div>
+
 </form>
