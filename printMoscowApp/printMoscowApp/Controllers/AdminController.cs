@@ -16,20 +16,74 @@ namespace PrintMoscowApp.Controllers
     {
         private IProductRepository repository;
         private ICategoryRepository categoryRepository;
+		private IOurTeamRepository teamRepository;
+		private IWhatDoWeOfferyRepository offerRepository;
+		private ITypesOfPrintingRepository typeRepository;
 
-        public AdminController(IProductRepository repo, ICategoryRepository categoryRepo)
+		public AdminController(
+			IProductRepository repo,
+			ICategoryRepository categoryRepo,
+			IOurTeamRepository teamRepo,
+			IWhatDoWeOfferyRepository offerRepo,
+			ITypesOfPrintingRepository typeRepo
+			)
         {
             repository = repo;
             categoryRepository = categoryRepo;
+			teamRepository = teamRepo;
+			offerRepository = offerRepo;
+			typeRepository = typeRepo;
         }
 
         public ViewResult Index() => View(repository.Products);
+		public ViewResult CategoryList() => View(categoryRepository.Categories);
+		public ViewResult InformationList() => View();
 
-        public ViewResult Edit(int productId) =>
+
+		public ViewResult Edit(int productId) =>
             View(repository.Products
                 .FirstOrDefault(p => p.ProductID == productId));
 
-        [HttpPost]
+		public ViewResult EditCategory(int categoryId)
+		{
+			var category = categoryRepository.Categories.Where(p => p.Id == categoryId).FirstOrDefault();
+			var t = new CategoryEditViewModel
+			{
+				Category = category
+			};
+			return View(t);
+		}
+
+		public ViewResult EditWhatDoWeOffer(int offerId)
+		{
+			var offer = offerRepository.Offers.Where(p => p.Id == offerId).FirstOrDefault();
+			var t = new OfferEditViewModel
+			{
+				Offer = offer
+			};
+			return View(t);
+		}
+		public ViewResult EditTypesOfPrinting(int typeId)
+		{
+			var type = typeRepository.Types.Where(p => p.Id == typeId).FirstOrDefault();
+			var t = new TypeEditViewModel
+			{
+				Type = type
+			};
+			return View(t);
+		}
+		public ViewResult EditOurTeam(int teamId)
+		{
+			var team = teamRepository.Teams.Where(p => p.Id == teamId).FirstOrDefault();
+			var t = new TeamEditViewModel
+			{
+				Team = team
+			};
+			return View(t);
+		}
+
+
+		[HttpPost]
         public IActionResult Edit(Product product)
         {
             if (ModelState.IsValid)
@@ -44,39 +98,12 @@ namespace PrintMoscowApp.Controllers
                 return View(product);
             }
         }
-
-        public ViewResult Create() => View("Edit", new Product());
-
-        [HttpPost]
-        public IActionResult Delete(int productId)
-        {
-            Product deletedProduct = repository.DeleteProduct(productId);
-            if (deletedProduct != null)
-            {
-                TempData["message"] = $"{deletedProduct.Name} was deleted";
-            }
-            return RedirectToAction("Index");
-        }
-
-        public ViewResult CategoryList() => View(categoryRepository.Categories);
-		public ViewResult InformationList() => View();
-
-		public ViewResult EditCategory(int categoryId)
-        {
-            var category = categoryRepository.Categories.Where(p => p.Id == categoryId).FirstOrDefault();
-            var t = new CategoryEditViewModel
-            {
-                Category = category
-            };
-            return View(t);
-        }
-
-        // POST: /Admin/EditCategory
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditCategory(CategoryEditViewModel categoryView)
-        {
+		// POST: /Admin/EditCategory
+		[HttpPost]
+		[AllowAnonymous]
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> EditCategory(CategoryEditViewModel categoryView)
+		{
 			if (categoryView.CategoryImage != null)
 			{
 				using (var memoryStream = new MemoryStream())
@@ -86,32 +113,161 @@ namespace PrintMoscowApp.Controllers
 					categoryView.Category.ImageMimeType = categoryView.CategoryImage.ContentType;
 				}
 			}
-            if (ModelState.IsValid)
-            {
-                var category = new Category
-                {
-                    Name = categoryView.Category.Name,
-                    Price = categoryView.Category.Price,
-                    CategoryImage = categoryView.Category.CategoryImage
-                };
-               
-                categoryRepository.SaveCategory(categoryView.Category);
-                TempData["message"] = $"{categoryView.Category.Name} has been saved";
-                return RedirectToAction("CategoryList");
-            }
-            else
-            {
-                // there is something wrong with the data values
-                return View(categoryView);
-            }
-        }      
+			if (ModelState.IsValid)
+			{
+				var category = new Category
+				{
+					Name = categoryView.Category.Name,
+					Price = categoryView.Category.Price,
+					CategoryImage = categoryView.Category.CategoryImage
+				};
 
-        public ViewResult CreateCategory() => View("EditCategory", new CategoryEditViewModel
-            {
-            Category = new Category()
-            }
-    );
+				categoryRepository.SaveCategory(categoryView.Category);
+				TempData["message"] = $"{categoryView.Category.Name} has been saved";
+				return RedirectToAction("CategoryList");
+			}
+			else
+			{
+				// there is something wrong with the data values
+				return View(categoryView);
+			}
+		}
 
+		// POST: /Admin/EditWhatDoWeOffer
+		[HttpPost]
+		[AllowAnonymous]
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> EditWhatDoWeOffer(OfferEditViewModel categoryView)
+		{
+			if (categoryView.OfferImage != null)
+			{
+				using (var memoryStream = new MemoryStream())
+				{
+					await categoryView.OfferImage.CopyToAsync(memoryStream);
+					categoryView.Offer.Image = memoryStream.ToArray();
+					categoryView.Offer.ImageMimeType = categoryView.OfferImage.ContentType;
+				}
+			}
+			if (ModelState.IsValid)
+			{
+				var category = new WhatDoWeOffer
+				{
+					Title = categoryView.Offer.Title,
+					Description = categoryView.Offer.Description,
+					Image = categoryView.Offer.Image
+				};
+
+				offerRepository.SaveOffer(categoryView.Offer);
+				TempData["message"] = $"{categoryView.Offer.Title} has been saved";
+				return RedirectToAction("InformationList");
+			}
+			else
+			{
+				// there is something wrong with the data values
+				return View(categoryView);
+			}
+		}
+
+
+		// POST: /Admin/EditTypesOfPrinting
+		[HttpPost]
+		[AllowAnonymous]
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> EditTypesOfPrinting(TypeEditViewModel categoryView)
+		{
+			if (categoryView.TypeImage != null)
+			{
+				using (var memoryStream = new MemoryStream())
+				{
+					await categoryView.TypeImage.CopyToAsync(memoryStream);
+					categoryView.Type.Image = memoryStream.ToArray();
+					categoryView.Type.ImageMimeType = categoryView.TypeImage.ContentType;
+				}
+			}
+			if (ModelState.IsValid)
+			{
+				var category = new TypesOfPrinting
+				{
+					Title = categoryView.Type.Title,
+					Description = categoryView.Type.Description,
+					Image = categoryView.Type.Image
+				};
+
+				typeRepository.SaveType(categoryView.Type);
+				TempData["message"] = $"{categoryView.Type.Title} has been saved";
+				return RedirectToAction("InformationList");
+			}
+			else
+			{
+				// there is something wrong with the data values
+				return View(categoryView);
+			}
+		}
+
+		// POST: /Admin/EditOurTeam
+		[HttpPost]
+		[AllowAnonymous]
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> EditOurTeam(TeamEditViewModel categoryView)
+		{
+			if (categoryView.TeamImage != null)
+			{
+				using (var memoryStream = new MemoryStream())
+				{
+					await categoryView.TeamImage.CopyToAsync(memoryStream);
+					categoryView.Team.Image = memoryStream.ToArray();
+					categoryView.Team.ImageMimeType = categoryView.TeamImage.ContentType;
+				}
+			}
+			if (ModelState.IsValid)
+			{
+				var category = new OurTeam
+				{
+					Name = categoryView.Team.Name,
+					Description = categoryView.Team.Description,
+					Position = categoryView.Team.Position,
+					Image = categoryView.Team.Image
+				};
+
+				teamRepository.SaveTeam(categoryView.Team);
+				TempData["message"] = $"{categoryView.Team.Name} has been saved";
+				return RedirectToAction("InformationList");
+			}
+			else
+			{
+				// there is something wrong with the data values
+				return View(categoryView);
+			}
+		}
+
+		public ViewResult Create() => View("Edit", new Product());
+		public ViewResult CreateCategory() => View("EditCategory", new CategoryEditViewModel
+		{
+			Category = new Category()
+		});
+		public ViewResult CreateOffer() => View("EditWhatDoWeOffer", new OfferEditViewModel
+		{
+			Offer = new WhatDoWeOffer()
+		});
+		public ViewResult CreateTeam() => View("EditOurTeam", new TeamEditViewModel
+		{
+			Team = new OurTeam()
+		});
+		public ViewResult CreateType() => View("EditTypesOfPrinting", new TypeEditViewModel
+		{
+			Type = new TypesOfPrinting()
+		});
+
+		[HttpPost]
+        public IActionResult Delete(int productId)
+        {
+            Product deletedProduct = repository.DeleteProduct(productId);
+            if (deletedProduct != null)
+            {
+                TempData["message"] = $"{deletedProduct.Name} was deleted";
+            }
+            return RedirectToAction("Index");
+        }
 		[HttpPost]
 		public IActionResult DeleteCategory(int categoryId)
 		{
@@ -122,7 +278,41 @@ namespace PrintMoscowApp.Controllers
 			}
 			return RedirectToAction("CategoryList");
 		}
-        public FileContentResult GetImage(Category item)
+
+		[HttpPost]
+		public IActionResult DeleteOffer(int offerId)
+		{
+			WhatDoWeOffer deletedOffer = offerRepository.DeleteOffer(offerId);
+			if (deletedOffer != null)
+			{
+				TempData["message"] = $"{deletedOffer.Title} was deleted";
+			}
+			return RedirectToAction("InformationList");
+		}
+
+		[HttpPost]
+		public IActionResult DeleteTeam(int teamId)
+		{
+			OurTeam deletedTeam= teamRepository.DeleteTeam(teamId);
+			if (deletedTeam != null)
+			{
+				TempData["message"] = $"{deletedTeam.Name} was deleted";
+			}
+			return RedirectToAction("InformationList");
+		}
+
+		[HttpPost]
+		public IActionResult DeleteType(int typeId)
+		{
+			TypesOfPrinting deletedType = typeRepository.DeleteType(typeId);
+			if (deletedType != null)
+			{
+				TempData["message"] = $"{deletedType.Title} was deleted";
+			}
+			return RedirectToAction("InformationList");
+		}
+
+		public FileContentResult GetImage(Category item)
         {
             Category category = categoryRepository.Categories
                 .FirstOrDefault(g => g.Id == item.Id);
@@ -136,6 +326,48 @@ namespace PrintMoscowApp.Controllers
                 return null;
             }
         }
-    }
+		public FileContentResult GetImageOffer(WhatDoWeOffer item)
+		{
+			WhatDoWeOffer offer = offerRepository.Offers
+				.FirstOrDefault(g => g.Id == item.Id);
+
+			if (offer != null)
+			{
+				return File(offer.Image, offer.ImageMimeType);
+			}
+			else
+			{
+				return null;
+			}
+		}
+		public FileContentResult GetImageType(TypesOfPrinting item)
+		{
+			TypesOfPrinting type = typeRepository.Types
+				.FirstOrDefault(g => g.Id == item.Id);
+
+			if (type != null)
+			{
+				return File(type.Image, type.ImageMimeType);
+			}
+			else
+			{
+				return null;
+			}
+		}
+		public FileContentResult GetImageTeam(OurTeam item)
+		{
+			OurTeam team = teamRepository.Teams
+				.FirstOrDefault(g => g.Id == item.Id);
+
+			if (team != null)
+			{
+				return File(team.Image, team.ImageMimeType);
+			}
+			else
+			{
+				return null;
+			}
+		}
+	}
 }
 
