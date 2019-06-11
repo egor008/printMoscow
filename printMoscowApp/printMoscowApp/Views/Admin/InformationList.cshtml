@@ -1,0 +1,30 @@
+﻿@{
+	ViewBag.Title = "Информация";
+	Layout = "_AdminLayout";
+}
+
+<div class="field_category">
+	<span>Что мы предлагаем</span>
+	<div class="btn btn_edit thumbs" id="thumb0">
+		<a asp-action="EditWhatDoWeOffer" asp-route-categoryId="">
+			Редактировать
+		</a>
+	</div>
+</div>
+<div class="field_category">
+	<span>Виды печати</span>
+	<div class="btn btn_edit thumbs" id="thumb0">
+		<a asp-action="EditTypesOfPrinting" asp-route-categoryId="">
+			Редактировать
+		</a>
+	</div>
+</div>
+<div class="field_category">
+	<span>Наша команда</span>
+	<div class="btn btn_edit thumbs" id="thumb0">
+		<a asp-action="EditOurTeam" asp-route-categoryId="">
+			Редактировать
+		</a>
+	</div>
+</div>
+

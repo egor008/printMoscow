@@ -18,6 +18,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20190603194328_Test.cs" />
     <Compile Remove="Migrations\20190603194328_Test.Designer.cs" />
+    <Compile Remove="Migrations\20190611212741_AddNewThreeModels.cs" />
+    <Compile Remove="Migrations\20190611212741_AddNewThreeModels.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

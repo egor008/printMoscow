@@ -19,17 +19,25 @@
 	<header>
 		<div class="header">
 			<ul>
-				<li><a asp-action="Index"
-   asp-controller="Admin" class="btn menu">Продукты</a></li>
-				<li><a asp-action="CategoryList"
-   asp-controller="Admin" class="btn menu">Категории</a></li>
+				<li>
+					<a asp-action="Index"
+					   asp-controller="Admin" class="btn menu">Продукты</a>
+				</li>
+				<li>
+					<a asp-action="CategoryList"
+					   asp-controller="Admin" class="btn menu">Категории</a>
+				</li>
+				<li>
+					<a asp-action="InformationList"
+					   asp-controller="Admin" class="btn menu">Информация</a>
+				</li>
 			</ul>
 			
 			
 		</div>
 	</header>
 	<section class="panel panel-default">
-		<div class="panel-heading"><h4>@ViewBag.Title</h4></div>
+		<div class="panel-heading text-center"><h4>@ViewBag.Title</h4></div>
 		<div class="panel-body">
 			@if (TempData["message"] != null)
 			{

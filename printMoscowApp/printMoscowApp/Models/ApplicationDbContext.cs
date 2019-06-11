@@ -13,5 +13,8 @@ namespace PrintMoscowApp.Models
 		public DbSet<Product> Products { get; set; }
 		public DbSet<Order> Orders { get; set; }
 		public DbSet<Category> Categories {get;set;}
+		public DbSet<WhatDoWeOffer> Offers { get; set; }
+		public DbSet<TypesOfPrinting> TypesOfPrintings { get; set; }
+		public DbSet<OurTeam> OurTeams { get; set; }
 	}
 }

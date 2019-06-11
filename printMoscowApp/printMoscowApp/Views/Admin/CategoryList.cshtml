@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Category>
 
 @{
-	ViewBag.Title = "All Category";
+	ViewBag.Title = "Категории";
 	Layout = "_AdminLayout";
 }
 
@@ -36,11 +36,11 @@
 		<form asp-action="DeleteCategory" method="post">
 			<a asp-action="EditCategory" class="btn btn-sm btn-warning"
 			   asp-route-categoryId="@item.Id">
-				Edit
+				Редактировать
 			</a>
 			<input type="hidden" name="CategoryId" value="@item.Id" />
 			<button type="submit" class="btn btn-danger btn-sm">
-				Delete
+				Удалить
 			</button>
 		</form>
 	</td>
@@ -48,5 +48,5 @@
 	}
 </table>
 <div class="text-center">
-	<a asp-action="CreateCategory" class="btn btn-primary">Add Product</a>
+	<a asp-action="CreateCategory" class="btn btn-primary">Добавить категорию</a>
 </div>

@@ -55,6 +55,9 @@ namespace printMoscowApp
 			services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 			services.AddTransient<IOrderRepository, EFOrderRepository>();
 			services.AddTransient<ICategoryRepository, EFCategorytRepository>();
+			services.AddTransient<ITypesOfPrintingRepository, EFTypesOfPrintingRepository>();
+			services.AddTransient<IOurTeamRepository, EFOurTeamRepository>();
+			services.AddTransient<IWhatDoWeOfferyRepository, EFWhatDoWeOfferyRepository>();
 			services.AddMvc();
 			services.AddMemoryCache();
 			services.AddSession();
