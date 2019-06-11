@@ -11,12 +11,19 @@
     font-weight: bold;
     font-style: normal;
 }
-
+figure.offer img {
+	max-width: 359px;
+	max-height: 270px;
+}
+.services__card img {
+	max-width: 249px;
+	max-height: 188px;
+}
 @font-face {
-    font-family: 'MyWebFont';
-    src: url('../fonts/Circe-Light.ttf');
-    font-weight: normal;
-    font-style: italic;
+	font-family: 'MyWebFont';
+	src: url('../fonts/Circe-Light.ttf');
+	font-weight: normal;
+	font-style: italic;
 }
 
 * {

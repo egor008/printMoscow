@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Category>
+﻿@model HomeViewModel
 
 @{
 	ViewBag.Title = "PRINT.MOSCOW";
@@ -9,7 +9,7 @@
 		<h1>МЫ ПРОИЗВОДИМ ПОЛИГРАФИЧЕСКУЮ ПРОДУКЦИЮ С 2007 ГОДА</h1>
 		<div class="posts">
 			<div class="products">
-				@foreach (var item in Model)
+				@foreach (var item in Model.Categories)
 				{
 					<figure>
                         <a asp-action="List"
@@ -40,50 +40,24 @@
 	<div class="wrapper">
 		<h1>ЧТО МЫ ПРЕДЛАГАЕМ?</h1>
 		<div class="offers">
-			<div class="mt30">
-				<figure class="offer">
-					<img src="./img/PortfolioWork1.png" alt="1">
-					<figcaption>
-						<h4>Дизайн и верстка</h4>
-						<span>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-							Nulla quam
-							velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac
-							blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris
-							molestie elit, et lacinia ipsum quam nec dui.
-						</span>
-					</figcaption>
-				</figure>
-			</div>
-			<div class="mt30">
-				<figure class="offer">
-					<img src="./img/PortfolioWork1.png" alt="2">
-					<figcaption>
-						<h4>Срочная печать</h4>
-						<span>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam
-							velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac
-							blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris
-							molestie elit, et lacinia ipsum quam nec dui.
-						</span>
-					</figcaption>
-				</figure>
-			</div>
-			<div class="mt30">
-				<figure class="offer">
-					<img src="./img/PortfolioWork1.png" alt="3">
-					<figcaption>
-						<h4>Качественная отделка</h4>
-						<span>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nulla quam velit,
-							vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac
-							blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris
-							molestie elit, et lacinia ipsum quam nec dui.
-						</span>
-					</figcaption>
-				</figure>
-			</div>
+			@foreach (var item in Model.Offer)
+			{
+				<div class="mt30">
+					<figure class="offer">
 
+						@if (item.Image != null)
+						{
+							<img  src="@Url.Action("GetImageOffer", "Admin", new { item.Id })" />
+						}						
+						<figcaption>
+							<h4>@item.Title</h4>
+							<span>
+								@item.Description
+							</span>
+						</figcaption>
+					</figure>
+				</div>
+			}
 		</div>
 	</div>
 </section>
@@ -91,49 +65,19 @@
 	<div class="wrapper">
 		<h1>ВИДЫ ПЕЧАТИ</h1>
 		<div class="services__cards">
+			@foreach (var item in Model.Type)
+			{
 			<div class="services__card">
-				<img src="./img/PortfolioWork1.png" alt="MobileApps">
-				<h4>Цифровая печать</h4>
+				@if (item.Image != null)
+				{
+					<img src="@Url.Action("GetImageType", "Admin", new { item.Id })" />
+				}
+				<h4>@item.Title</h4>
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nulla quam velit,
-					vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac
-					blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris
-					molestie elit, et lacinia ipsum quam nec dui.
+					@item.Description
 				</p>
 			</div>
-			<div class="services__card">
-				<img src="./img/PortfolioWork1.png" alt="MobileApps">
-				<h4>Цифровая печать</h4>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nulla quam velit,
-					vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac
-					blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris
-					molestie elit, et lacinia ipsum quam nec dui.
-				</p>
-			</div>
-			<div class="services__card">
-				<img src="./img/PortfolioWork1.png" alt="MobileApps">
-				<h4>Цифровая печать </h4>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nulla quam velit,
-					vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac
-					blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris
-					molestie elit, et lacinia ipsum quam nec dui.
-				</p>
-			</div>
-			<div class="services__card">
-				<img src="./img/PortfolioWork1.png" alt="MobileApps">
-				<h4>
-					Цифровая печать
-				</h4>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nulla quam velit,
-					vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac
-					blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris
-					molestie elit, et lacinia ipsum quam nec dui.
-				</p>
-			</div>
-
+			}
 		</div>
 	</div>
 </section>
@@ -141,15 +85,21 @@
 	<div class="wrapper">
 		<h1>НАША КОМАНДА</h1>
 		<div class="team__cards">
+			@foreach (var item in Model.Team)
+			{
 			<div class="card ">
-				<div class="photo team1"></div>
-				<h4 class="name">Vlad Ivanov</h4>
-				<p class="position">Designer</p>
+				@if (item.Image != null)
+				{
+					<img class="photo" src="@Url.Action("GetImageTeam", "Admin", new { item.Id })" />
+				}
+				@*<div class="photo team1"></div>*@
+				<h4 class="name">@item.Name</h4>
+				<p class="position">@item.Position</p>
 				<p class="about__position">
-					Do not seek to change what has come before. Seek to create that
-					which has not.
+					@item.Description
 				</p>
 			</div>
+			}
 			<div class="card">
 				<div class="photo team2"></div>
 				<h4 class="name">Bogdan Makarov</h4>

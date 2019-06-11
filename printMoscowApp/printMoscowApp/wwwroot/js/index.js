@@ -1,13 +1,3 @@
-$(document).ready(function(){
-    var carousel = $(".owl-carousel");
-    carousel.owlCarousel({
-    items: 1,
-    loop: true,
-    autoplay: true,
-    autoplayTimeout:5000,
-    autoplaySpeed:3000});
-});
-
 menu.onclick = function muFunction() {
     var x = document.getElementById('myTopnav');
     if (x.className === "topnav"){
