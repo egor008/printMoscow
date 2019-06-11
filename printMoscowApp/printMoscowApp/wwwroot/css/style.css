@@ -806,7 +806,8 @@ a#menus {
 }
 .product {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-evenly;
+	flex-flow: wrap;
 }
 .label-primary {
 	background-color: #337ab7;
@@ -931,9 +932,18 @@ a#menus {
 .block__offers .wrapper {
     margin-bottom: 0.67em;
 }
-
+.lead {
+	display:flex;
+	flex-direction:column;
+}
+.lead button{
+	margin-top:10px;
+}
+.price{
+	margin-left:30px;
+}
 @media screen and (max-width: 1350px) {
-    .products figure {
+	.products figure {
         width: 20%;
     }
 }
