@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WhatDoWeOffer>
+﻿@model InformationListViewModel
 @{
 	ViewBag.Title = "Информация";
 	Layout = "_AdminLayout";
@@ -20,7 +20,7 @@
 				<th class="text-center">Действие</th>
 			</tr>
 
-			@foreach (var item in Model)
+			@foreach (var item in Model.Offer)
 			{
 				<tr>
 					<td class="text-right">@item.Id</td>
@@ -45,24 +45,95 @@
 			<a asp-action="CreateOffer" class="btn btn-primary">Добавить предложение</a>
 		</div>
 	</div>
-
-
-	
 </div>
-@*<div class="field_category">
-	<span>Виды печати</span>
-	<div class="btn btn_edit thumbs" id="thumb0">
-		<a asp-action="EditTypesOfPrinting" asp-route-categoryId="">
+
+<div class="field_information">
+	<div style="display: flex;
+    justify-content: space-between;">
+		<span>Виды печати</span>
+		<div class="btn btn_edit thumbs" id="thumb0" onclick="klikaj('type')">
 			Редактировать
-		</a>
+		</div>
+	</div>
+	<div class="show_more" id="type">
+		<table class="table table-striped table-bordered table-condensed">
+			<tr>
+				<th class="text-right">ID</th>
+				<th>Наименование</th>
+				<th class="text-right">Описание</th>
+				<th class="text-center">Действие</th>
+			</tr>
+
+			@foreach (var item in Model.Type)
+			{
+				<tr>
+					<td class="text-right">@item.Id</td>
+					<td>@item.Title</td>
+					<td class="text-right">@item.Description</td>
+					<td class="text-center">
+						<form asp-action="DeleteType" method="post">
+							<a asp-action="EditTypesOfPrinting" class="btn btn-sm btn-warning"
+							   asp-route-typeId="@item.Id">
+								Редактировать
+							</a>
+							<input type="hidden" name="Id" value="@item.Id" />
+							<button type="submit" class="btn btn-danger btn-sm">
+								Удалить
+							</button>
+						</form>
+					</td>
+				</tr>
+			}
+		</table>
+		<div class="text-center">
+			<a asp-action="CreateType" class="btn btn-primary">Добавить предложение</a>
+		</div>
 	</div>
 </div>
-<div class="field_category">
-	<span>Наша команда</span>
-	<div class="btn btn_edit thumbs" id="thumb0">
-		<a asp-action="EditOurTeam" asp-route-categoryId="">
-			Редактировать
-		</a>
-	</div>
-</div>*@
 
+
+<div class="field_information">
+	<div style="display: flex;
+    justify-content: space-between;">
+		<span>Наша команда</span>
+		<div class="btn btn_edit thumbs" id="thumb0" onclick="klikaj('team')">
+			Редактировать
+		</div>
+	</div>
+	<div class="show_more" id="team">
+		<table class="table table-striped table-bordered table-condensed">
+			<tr>
+				<th class="text-right">ID</th>
+				<th>Наименование</th>
+				<th>Позиция</th>
+				<th class="text-right">Описание</th>
+				<th class="text-center">Действие</th>
+			</tr>
+
+			@foreach (var item in Model.Team)
+			{
+			<tr>
+				<td class="text-right">@item.Id</td>
+				<td>@item.Name</td>
+				<td>@item.Position</td>
+				<td class="text-right">@item.Description</td>
+				<td class="text-center">
+					<form asp-action="DeleteTeam" method="post">
+						<a asp-action="EditOurTeam" class="btn btn-sm btn-warning"
+						   asp-route-teamId="@item.Id">
+							Редактировать
+						</a>
+						<input type="hidden" name="Id" value="@item.Id" />
+						<button type="submit" class="btn btn-danger btn-sm">
+							Удалить
+						</button>
+					</form>
+				</td>
+			</tr>
+			}
+		</table>
+		<div class="text-center">
+			<a asp-action="CreateTeam" class="btn btn-primary">Добавить предложение</a>
+		</div>
+	</div>
+</div>

@@ -37,7 +37,19 @@ namespace PrintMoscowApp.Controllers
 
         public ViewResult Index() => View(repository.Products);
 		public ViewResult CategoryList() => View(categoryRepository.Categories);
-		public ViewResult InformationList() => View(offerRepository.Offers);
+		public ViewResult InformationList() {
+			var offer = offerRepository.Offers.ToArray();
+			var type = typeRepository.Types.ToArray();
+			var team = teamRepository.Teams.ToArray();
+
+			var t = new InformationListViewModel {
+			Offer = offer,
+			Team = team,
+			Type = type
+			};
+
+			return View(t);
+		} 
 
 
 		public ViewResult Edit(int productId) =>

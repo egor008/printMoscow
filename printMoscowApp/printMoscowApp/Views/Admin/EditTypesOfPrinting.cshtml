@@ -1,0 +1,48 @@
+﻿@model TypeEditViewModel
+
+@{
+	ViewBag.Title = Model.Type.Title;
+	Layout = "_AdminLayout";
+}
+
+<form asp-action="EditTypesOfPrinting" method="post" enctype="multipart/form-data">
+	<input type="hidden" asp-for="Type.Id" />
+	<div class="form-group">
+		<label asp-for="Type.Title">Наименование</label>
+		<div><span asp-validation-for="Type.Title" class="text-danger"></span></div>
+		<input asp-for="Type.Title" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="Type.Description">Описание</label>
+		<div><span asp-validation-for="Type.Description" class="text-danger"></span></div>
+		<input asp-for="Type.Description" class="form-control" />
+	</div>
+	<div class="form-group">
+		@if (Model.Type.Image == null)
+		{
+		<div class="form-control-static">Изображение не загружено</div>
+		}
+		else
+		{
+		<img class="img-thumbnail" width="150" height="150"
+			 src="@Url.Action("GetImageType", "Admin",
+                        new { Model.Type.Id })" />
+		}
+	</div>
+	<div style="display: flex;
+    flex-direction: column;">
+
+		<div class="form-group" style="@(Model.Type.Image != null? "display:none" : "display:block")">
+			<div class="">
+				<p>Загрузить одну фотографию:</p>
+				<input type="file" name="TypeImage" multiple>
+			</div>
+		</div>
+
+	</div>
+	<div class="text-center">
+		<button class="btn btn-primary" type="submit">Сохранить</button>
+		<a asp-action="InformationList" class="btn btn-default">Отменить</a>
+	</div>
+
+</form>
