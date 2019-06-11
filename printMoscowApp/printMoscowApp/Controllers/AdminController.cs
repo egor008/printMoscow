@@ -37,7 +37,7 @@ namespace PrintMoscowApp.Controllers
 
         public ViewResult Index() => View(repository.Products);
 		public ViewResult CategoryList() => View(categoryRepository.Categories);
-		public ViewResult InformationList() => View();
+		public ViewResult InformationList() => View(offerRepository.Offers);
 
 
 		public ViewResult Edit(int productId) =>
@@ -137,34 +137,34 @@ namespace PrintMoscowApp.Controllers
 		[HttpPost]
 		[AllowAnonymous]
 		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> EditWhatDoWeOffer(OfferEditViewModel categoryView)
+		public async Task<IActionResult> EditWhatDoWeOffer(OfferEditViewModel offerView)
 		{
-			if (categoryView.OfferImage != null)
+			if (offerView.OfferImage != null)
 			{
 				using (var memoryStream = new MemoryStream())
 				{
-					await categoryView.OfferImage.CopyToAsync(memoryStream);
-					categoryView.Offer.Image = memoryStream.ToArray();
-					categoryView.Offer.ImageMimeType = categoryView.OfferImage.ContentType;
+					await offerView.OfferImage.CopyToAsync(memoryStream);
+					offerView.Offer.Image = memoryStream.ToArray();
+					offerView.Offer.ImageMimeType = offerView.OfferImage.ContentType;
 				}
 			}
 			if (ModelState.IsValid)
 			{
 				var category = new WhatDoWeOffer
 				{
-					Title = categoryView.Offer.Title,
-					Description = categoryView.Offer.Description,
-					Image = categoryView.Offer.Image
+					Title = offerView.Offer.Title,
+					Description = offerView.Offer.Description,
+					Image = offerView.Offer.Image
 				};
 
-				offerRepository.SaveOffer(categoryView.Offer);
-				TempData["message"] = $"{categoryView.Offer.Title} has been saved";
+				offerRepository.SaveOffer(offerView.Offer);
+				TempData["message"] = $"{offerView.Offer.Title} has been saved";
 				return RedirectToAction("InformationList");
 			}
 			else
 			{
 				// there is something wrong with the data values
-				return View(categoryView);
+				return View(offerView);
 			}
 		}
 
@@ -173,34 +173,34 @@ namespace PrintMoscowApp.Controllers
 		[HttpPost]
 		[AllowAnonymous]
 		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> EditTypesOfPrinting(TypeEditViewModel categoryView)
+		public async Task<IActionResult> EditTypesOfPrinting(TypeEditViewModel typeView)
 		{
-			if (categoryView.TypeImage != null)
+			if (typeView.TypeImage != null)
 			{
 				using (var memoryStream = new MemoryStream())
 				{
-					await categoryView.TypeImage.CopyToAsync(memoryStream);
-					categoryView.Type.Image = memoryStream.ToArray();
-					categoryView.Type.ImageMimeType = categoryView.TypeImage.ContentType;
+					await typeView.TypeImage.CopyToAsync(memoryStream);
+					typeView.Type.Image = memoryStream.ToArray();
+					typeView.Type.ImageMimeType = typeView.TypeImage.ContentType;
 				}
 			}
 			if (ModelState.IsValid)
 			{
 				var category = new TypesOfPrinting
 				{
-					Title = categoryView.Type.Title,
-					Description = categoryView.Type.Description,
-					Image = categoryView.Type.Image
+					Title = typeView.Type.Title,
+					Description = typeView.Type.Description,
+					Image = typeView.Type.Image
 				};
 
-				typeRepository.SaveType(categoryView.Type);
-				TempData["message"] = $"{categoryView.Type.Title} has been saved";
+				typeRepository.SaveType(typeView.Type);
+				TempData["message"] = $"{typeView.Type.Title} has been saved";
 				return RedirectToAction("InformationList");
 			}
 			else
 			{
 				// there is something wrong with the data values
-				return View(categoryView);
+				return View(typeView);
 			}
 		}
 
@@ -208,35 +208,35 @@ namespace PrintMoscowApp.Controllers
 		[HttpPost]
 		[AllowAnonymous]
 		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> EditOurTeam(TeamEditViewModel categoryView)
+		public async Task<IActionResult> EditOurTeam(TeamEditViewModel teamView)
 		{
-			if (categoryView.TeamImage != null)
+			if (teamView.TeamImage != null)
 			{
 				using (var memoryStream = new MemoryStream())
 				{
-					await categoryView.TeamImage.CopyToAsync(memoryStream);
-					categoryView.Team.Image = memoryStream.ToArray();
-					categoryView.Team.ImageMimeType = categoryView.TeamImage.ContentType;
+					await teamView.TeamImage.CopyToAsync(memoryStream);
+					teamView.Team.Image = memoryStream.ToArray();
+					teamView.Team.ImageMimeType = teamView.TeamImage.ContentType;
 				}
 			}
 			if (ModelState.IsValid)
 			{
 				var category = new OurTeam
 				{
-					Name = categoryView.Team.Name,
-					Description = categoryView.Team.Description,
-					Position = categoryView.Team.Position,
-					Image = categoryView.Team.Image
+					Name = teamView.Team.Name,
+					Description = teamView.Team.Description,
+					Position = teamView.Team.Position,
+					Image = teamView.Team.Image
 				};
 
-				teamRepository.SaveTeam(categoryView.Team);
-				TempData["message"] = $"{categoryView.Team.Name} has been saved";
+				teamRepository.SaveTeam(teamView.Team);
+				TempData["message"] = $"{teamView.Team.Name} has been saved";
 				return RedirectToAction("InformationList");
 			}
 			else
 			{
 				// there is something wrong with the data values
-				return View(categoryView);
+				return View(teamView);
 			}
 		}
 

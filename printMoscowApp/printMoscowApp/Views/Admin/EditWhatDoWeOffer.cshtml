@@ -1,0 +1,48 @@
+﻿@model OfferEditViewModel
+
+@{
+	ViewBag.Title = "Tests";
+	Layout = "_AdminLayout";
+}
+
+<form asp-action="EditWhatDoWeOffer" method="post" enctype="multipart/form-data">
+	<input type="hidden" asp-for="Offer.Id" />
+	<div class="form-group">
+		<label asp-for="Offer.Title">Наименование</label>
+		<div><span asp-validation-for="Offer.Title" class="text-danger"></span></div>
+		<input asp-for="Offer.Title" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="Offer.Description">Описание</label>
+		<div><span asp-validation-for="Offer.Description" class="text-danger"></span></div>
+		<input asp-for="Offer.Description" class="form-control" />
+	</div>
+	<div class="form-group">
+		@if (Model.Offer.Image == null)
+		{
+		<div class="form-control-static">Изображение не загружено</div>
+		}
+		else
+		{
+		<img class="img-thumbnail" width="150" height="150"
+			 src="@Url.Action("GetImageOffer", "Admin",
+                        new { Model.Offer.Id })" />
+		}
+	</div>
+	<div style="display: flex;
+    flex-direction: column;">
+
+		<div class="form-group" style="@(Model.Offer.Image != null? "display:none" : "display:block")">
+			<div class="">
+				<p>Загрузить одну фотографию:</p>
+				<input type="file" name="OfferImage" multiple>
+			</div>
+		</div>
+
+	</div>
+	<div class="text-center">
+		<button class="btn btn-primary" type="submit">Сохранить</button>
+		<a asp-action="InformationList" class="btn btn-default">Отменить</a>
+	</div>
+
+</form>

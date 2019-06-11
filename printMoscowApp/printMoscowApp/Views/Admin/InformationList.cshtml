@@ -1,17 +1,55 @@
-﻿@{
+﻿@model IEnumerable<WhatDoWeOffer>
+@{
 	ViewBag.Title = "Информация";
 	Layout = "_AdminLayout";
 }
-
-<div class="field_category">
-	<span>Что мы предлагаем</span>
-	<div class="btn btn_edit thumbs" id="thumb0">
-		<a asp-action="EditWhatDoWeOffer" asp-route-categoryId="">
+<div class="field_information">
+	<div style="display: flex;
+    justify-content: space-between;">
+		<span>Что мы предлагаем</span>
+		<div class="btn btn_edit thumbs" id="thumb0" onclick="klikaj('offer')">
 			Редактировать
-		</a>
+		</div>
 	</div>
+	<div class="show_more" id="offer">
+		<table class="table table-striped table-bordered table-condensed">
+			<tr>
+				<th class="text-right">ID</th>
+				<th>Наименование</th>
+				<th class="text-right">Описание</th>
+				<th class="text-center">Действие</th>
+			</tr>
+
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td class="text-right">@item.Id</td>
+					<td>@item.Title</td>
+					<td class="text-right">@item.Description</td>
+					<td class="text-center">
+						<form asp-action="DeleteOffer" method="post">
+							<a asp-action="EditWhatDoWeOffer" class="btn btn-sm btn-warning"
+							   asp-route-offerId="@item.Id">
+								Редактировать
+							</a>
+							<input type="hidden" name="Id" value="@item.Id" />
+							<button type="submit" class="btn btn-danger btn-sm">
+								Удалить
+							</button>
+						</form>
+					</td>
+				</tr>
+			}
+		</table>
+		<div class="text-center">
+			<a asp-action="CreateOffer" class="btn btn-primary">Добавить предложение</a>
+		</div>
+	</div>
+
+
+	
 </div>
-<div class="field_category">
+@*<div class="field_category">
 	<span>Виды печати</span>
 	<div class="btn btn_edit thumbs" id="thumb0">
 		<a asp-action="EditTypesOfPrinting" asp-route-categoryId="">
@@ -26,5 +64,5 @@
 			Редактировать
 		</a>
 	</div>
-</div>
+</div>*@
 
