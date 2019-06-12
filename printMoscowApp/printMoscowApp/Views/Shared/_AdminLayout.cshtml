@@ -15,10 +15,17 @@
 	<script asp-src-include="~/js/jquery.validate.min.js"></script>
 	<script asp-src-include="~/js/jquery.validate.unobtrusive.js"></script>
 </head>
+	@{
+		var t = "/Account/Login";
+	 }
 <body>
 	<header>
-		<div class="header">
-			<ul>
+		<div class="header" style="@(@ViewContext.HttpContext.Request.Path.Value == t? "display:none" : "display:block")">
+			<ul>				
+				<li>
+					<a asp-action="List"
+					   asp-controller="Order" class="btn menu">Заказы</a>
+				</li>
 				<li>
 					<a asp-action="Index"
 					   asp-controller="Admin" class="btn menu">Продукты</a>
@@ -36,14 +43,16 @@
 			
 		</div>
 	</header>
-	<section class="panel panel-default">
-		<div class="panel-heading text-center"><h4>@ViewBag.Title</h4></div>
-		<div class="panel-body">
-			@if (TempData["message"] != null)
-			{
-				<div class="alert alert-success">@TempData["message"]</div>
-			}
-			@RenderBody()
+	<section class="wrapper">
+		<div class="panel panel-default">
+			<div class="panel-heading text-center"><h4>@ViewBag.Title</h4></div>
+			<div class="panel-body">
+				@if (TempData["message"] != null)
+				{
+					<div class="alert alert-success">@TempData["message"]</div>
+				}
+				@RenderBody()
+			</div>
 		</div>
 	</section>
 	<script src="~/js/admin.js"></script>
