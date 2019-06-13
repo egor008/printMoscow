@@ -42,7 +42,7 @@
                             {
                                 <div>
                                     <img class="img-thumbnail" width="160" height="160"
-                                         src="@Url.Action("GetImage", "Admin",
+                                         src="@Url.Action("GetImage", "Home",
                 new { item.Id })" />
                                 </div>
                             }
@@ -69,7 +69,7 @@
 
 						@if (item.Image != null)
 						{
-							<img  src="@Url.Action("GetImageOffer", "Admin", new { item.Id })" />
+							<img  src="@Url.Action("GetImageOffer", "Home", new { item.Id })" />
 						}						
 						<figcaption>
 							<h4>@item.Title</h4>
@@ -92,7 +92,7 @@
 			<div class="services__card">
 				@if (item.Image != null)
 				{
-					<img src="@Url.Action("GetImageType", "Admin", new { item.Id })" />
+					<img src="@Url.Action("GetImageType", "Home", new { item.Id })" />
 				}
 				<h4>@item.Title</h4>
 				<p>
@@ -112,7 +112,7 @@
 			<div class="card ">
 				@if (item.Image != null)
 				{
-					<img class="photo" src="@Url.Action("GetImageTeam", "Admin", new { item.Id })" />
+					<img class="photo" src="@Url.Action("GetImageTeam", "Home", new { item.Id })" />
 				}
 				@*<div class="photo team1"></div>*@
 				<h4 class="name">@item.Name</h4>

@@ -324,62 +324,7 @@ namespace PrintMoscowApp.Controllers
 			return RedirectToAction("InformationList");
 		}
 
-		public FileContentResult GetImage(Category item)
-        {
-            Category category = categoryRepository.Categories
-                .FirstOrDefault(g => g.Id == item.Id);
-
-            if (category != null)
-            {
-                return File(category.CategoryImage, category.ImageMimeType);
-            }
-            else
-            {
-                return null;
-            }
-        }
-		public FileContentResult GetImageOffer(WhatDoWeOffer item)
-		{
-			WhatDoWeOffer offer = offerRepository.Offers
-				.FirstOrDefault(g => g.Id == item.Id);
-
-			if (offer != null)
-			{
-				return File(offer.Image, offer.ImageMimeType);
-			}
-			else
-			{
-				return null;
-			}
-		}
-		public FileContentResult GetImageType(TypesOfPrinting item)
-		{
-			TypesOfPrinting type = typeRepository.Types
-				.FirstOrDefault(g => g.Id == item.Id);
-
-			if (type != null)
-			{
-				return File(type.Image, type.ImageMimeType);
-			}
-			else
-			{
-				return null;
-			}
-		}
-		public FileContentResult GetImageTeam(OurTeam item)
-		{
-			OurTeam team = teamRepository.Teams
-				.FirstOrDefault(g => g.Id == item.Id);
-
-			if (team != null)
-			{
-				return File(team.Image, team.ImageMimeType);
-			}
-			else
-			{
-				return null;
-			}
-		}
+		
 	}
 }
 
